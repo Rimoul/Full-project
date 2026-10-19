@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details - Seazonal Swaad</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/order-details.css">
+</head>
+<body>
+
+    <!-- Header Injection -->
+    <div id="header-placeholder"></div>
+    
+    <main class="order-details-wrapper">
+        
+        <!-- Header Section -->
+        <div class="page-top-section">
+            <div class="title-block">
+                <h1 class="page-title">Order Details</h1>
+                <div class="title-divider">
+                    <svg viewBox="0 0 150 10" width="150" height="10">
+                        <line x1="0" y1="5" x2="150" y2="5" stroke="#C5A880" stroke-width="1"></line>
+                        <polygon points="75,2 78,5 75,8 72,5" fill="#C5A880"></polygon>
+                    </svg>
+                </div>
+                <p class="page-subtitle">View complete details of your order, track delivery and manage your order.</p>
+            </div>
+        </div>
+
+        <!-- Main Layout Grid -->
+        <section class="details-layout" id="order-details-main-container" style="display: none;">
+            
+            <!-- LEFT COLUMN: Main Info -->
+            <div class="left-column">
+                
+                <!-- Order Header & Status -->
+                <div class="detail-card header-card">
+                    <div class="header-split">
+                        <div class="order-id-block">
+                            <h2 class="order-id-title">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                <span id="od-order-number">Loading...</span>
+                                <button class="btn-copy" id="btn-copy-id" title="Copy ID"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </h2>
+                            <p class="order-date" id="od-order-date">Placed on ---</p>
+                        </div>
+                        <!-- JS Injected Status Badge -->
+                        <div id="od-status-badge-container"></div>
+                    </div>
+
+                    <!-- Status Alert Box (Dynamic JS Injection) -->
+                    <div class="status-alert" id="od-status-alert" style="display: none;">
+                        <!-- Alert content injected here -->
+                    </div>
+                </div>
+
+                <!-- Address & Payment Grid -->
+                <div class="info-grid">
+                    <div class="detail-card info-card">
+                        <div class="card-head">
+                            <h3><svg viewBox="0 0 24 24" fill="none" stroke="#C20A35" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Delivery Address</h3>
+                        </div>
+                        <!-- JS Injected Address Details -->
+                        <div id="od-shipping-address"></div>
+                    </div>
+
+                    <div class="detail-card info-card">
+                        <div class="card-head">
+                            <h3><svg viewBox="0 0 24 24" fill="none" stroke="#C20A35" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg> Payment Information</h3>
+                        </div>
+                        <!-- JS Injected Payment Details -->
+                        <ul class="payment-list" id="od-payment-details"></ul>
+                    </div>
+                </div>
+
+                <!-- Order Items -->
+                <div class="detail-card">
+                    <div class="card-head">
+                        <h3 id="od-items-count-title"><svg viewBox="0 0 24 24" fill="none" stroke="#C20A35" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Order Items</h3>
+                    </div>
+                    <!-- JS Injected Items List -->
+                    <div id="od-order-items-list"></div>
+                </div>
+
+                <!-- Price Details -->
+                <div class="detail-card price-card">
+                    <div class="card-head">
+                        <h3><svg viewBox="0 0 24 24" fill="none" stroke="#C20A35" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Price Details</h3>
+                    </div>
+                    <!-- JS Injected Breakdown -->
+                    <div class="price-list" id="od-price-breakdown"></div>
+                    <!-- JS Injected Total -->
+                    <div class="price-total" id="od-price-total"></div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Sidebar Actions -->
+            <div class="right-column">
+                
+                <!-- Summary Snapshot (JS Injected) -->
+                <div class="sidebar-widget snapshot-widget" id="od-sidebar-snapshot">
+                </div>
+
+                <!-- Actions Group (JS Injected Buttons based on status) -->
+                <div class="sidebar-widget actions-widget" id="od-sidebar-actions">
+                </div>
+
+                <!-- Policies Widget (Static Links) -->
+                <div class="sidebar-widget policies-widget">
+                    <h3><svg viewBox="0 0 24 24" fill="none" stroke="#C20A35" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Our Policies</h3>
+                    <ul class="policy-links">
+                        <li><a href="/pages/cancellation-policy.html">Cancellation Policy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+                        <li><a href="/pages/returns-policy.html">Returns & Refunds <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+                        <li><a href="/pages/shipping-policy.html">Shipping Policy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+                        <li><a href="/pages/terms.html">Terms & Conditions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading / Error State -->
+        <div id="od-loading-state" style="text-align: center; padding: 5rem 1rem;">
+            <p>Loading order details...</p>
+        </div>
+
+        <!-- SHARED BOTTOM BANNER -->
+        <div class="shared-bottom-wrapper">
+            <div class="wave-divider">
+                <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="#3A100E"></path></svg>
+            </div>
+            <section class="shared-bottom-banner">
+                <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.5"><path d="M12 2c0 0-4 4-4 10s4 10 4 10 4-4 4-10-4-10-4-10z"></path></svg>
+                <h2>Bringing the taste of tradition<br>closer to you.</h2>
+                <div class="hero-divider center-div"><svg viewBox="0 0 150 10" width="150" height="10"><line x1="0" y1="5" x2="150" y2="5" stroke="#C5A880" stroke-width="1"></line><circle cx="75" cy="5" r="3" fill="#C5A880"></circle></svg></div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Footer Injection -->
+    <div id="footer-placeholder"></div>
+    
+    <script src="/js/core/components.js"></script>
+    <script src="/js/core/layout.js"></script>
+    <script src="/js/core/router.js"></script>
+    <!-- Dynamic Logic Script -->
+    <script src="/js/pages/order-details.js"></script>
+</body>
+</html>

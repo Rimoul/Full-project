@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Addresses - Seazonal Swaad</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/manage-addresses.css">
+</head>
+<body>
+
+    <!-- Header Injection -->
+    <div id="header-placeholder"></div>
+    
+    <main class="addresses-page-wrapper">
+        
+        <!-- Toast Notification -->
+        <div class="toast-notification" style="display: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span>Address set as default</span>
+            <button class="close-toast">&times;</button>
+        </div>
+
+        <!-- Breadcrumb & Header -->
+        <div class="addresses-top-section">
+            <div class="breadcrumb">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Home</span> &gt; <span>My Account</span> &gt; <strong>Manage Addresses</strong>
+            </div>
+
+            <div class="header-flex">
+                <div class="title-block">
+                    <h1 class="page-title">Manage Addresses</h1>
+                    <div class="title-divider">
+                        <svg viewBox="0 0 260 10" width="260" height="10">
+                            <line x1="0" y1="5" x2="260" y2="5" stroke="#C5A880" stroke-width="1"></line>
+                            <polygon points="130,2 133,5 130,8 127,5" fill="#C5A880"></polygon>
+                        </svg>
+                    </div>
+                    <p class="page-subtitle">Add, edit or remove your delivery addresses.</p>
+                </div>
+                <button class="btn-add-address" id="openAddModalBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    Add New Address
+                </button>
+            </div>
+        </div>
+
+        <!-- Address List -->
+        <section class="addresses-content">
+            <h2 class="section-heading">Your Addresses (<span id="address-count">0</span>)</h2>
+            
+            <div class="address-scroll-container">
+                <div class="address-grid" id="address-grid">
+                    <!-- JS will inject addresses here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SHARED BOTTOM BANNER -->
+        <div class="shared-bottom-wrapper">
+            <div class="wave-divider">
+                <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="#3A100E"></path></svg>
+            </div>
+            <section class="shared-bottom-banner">
+                <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.5"><path d="M12 2c0 0-4 4-4 10s4 10 4 10 4-4 4-10-4-10-4-10z"></path></svg>
+                <h2>Bringing the taste of tradition<br>closer to you.</h2>
+                <div class="hero-divider center-div"><svg viewBox="0 0 150 10" width="150" height="10"><line x1="0" y1="5" x2="150" y2="5" stroke="#C5A880" stroke-width="1"></line><circle cx="75" cy="5" r="3" fill="#C5A880"></circle></svg></div>
+            </section>
+        </div>
+
+        <!-- MODAL OVERLAY -->
+        <div class="modal-overlay" id="addressModal">
+            <div class="modal-container">
+                <button class="btn-close-modal" id="closeModalBtn" aria-label="Close">&times;</button>
+                
+                <div class="modal-header">
+                    <h2>Add New Address</h2>
+                    <div class="hero-divider"><svg viewBox="0 0 150 10" width="150" height="10"><line x1="0" y1="5" x2="150" y2="5" stroke="#C5A880" stroke-width="1"></line><circle cx="75" cy="5" r="3" fill="#C5A880"></circle></svg></div>
+                    <p>Add a new delivery address to your account.</p>
+                </div>
+
+                <form class="address-form" id="addressForm">
+                    <div class="form-grid">
+                        <!-- Left Column -->
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label class="maroon-label">Address Type <span>*</span></label>
+                                <div class="radio-group-boxes">
+                                    <label class="radio-box active">
+                                        <input type="radio" name="addressType" value="Home" checked>
+                                        <div class="icon-box icon-home"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+                                        <span>Home</span>
+                                        <div class="radio-circle"></div>
+                                    </label>
+                                    <label class="radio-box">
+                                        <input type="radio" name="addressType" value="Office">
+                                        <div class="icon-box icon-office"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 21h18v-2H3v2zm4-16h2v2H7V5zm0 4h2v2H7V9zm0 4h2v2H7v-2zm4-8h2v2h-2V5zm0 4h2v2h-2V9zm0 4h2v2h-2v-2zm4-8h2v2h-2V5zm0 4h2v2h-2V9zm0 4h2v2h-2v-2zM3 21V3h18v18H3z"></path></svg></div>
+                                        <span>Office</span>
+                                        <div class="radio-circle"></div>
+                                    </label>
+                                    <label class="radio-box">
+                                        <input type="radio" name="addressType" value="Other">
+                                        <div class="icon-box icon-other"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"></path></svg></div>
+                                        <span>Other</span>
+                                        <div class="radio-circle"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg> Label (Optional)</label>
+                                <input type="text" id="addr-label" placeholder="e.g. My Home, Uncle's House">
+                            </div>
+                            <div class="form-group">
+                                <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Recipient Name <span>*</span></label>
+                                <input type="text" id="addr-name" placeholder="Enter recipient name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Phone Number <span>*</span></label>
+                                <div class="phone-input-group">
+                                    <select class="country-code" id="addr-code">
+                                        <option value="+91">+91</option>
+                                        <option value="+1">+1</option>
+                                    </select>
+                                    <input type="tel" id="addr-phone" placeholder="Enter phone number" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div class="form-col">
+                            <div class="form-group">
+                                <h3 class="subsection-title">Address Details</h3>
+                                <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Address <span>*</span></label>
+                                <textarea id="addr-line" rows="3" placeholder="House No., Street, Area" required></textarea>
+                            </div>
+                            <div class="form-row-split">
+                                <div class="form-group">
+                                    <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Landmark (Optional)</label>
+                                    <input type="text" id="addr-landmark" placeholder="e.g. Near Kalibari More">
+                                </div>
+                                <div class="form-group">
+                                    <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> City <span>*</span></label>
+                                    <input type="text" id="addr-city" placeholder="Enter city" required>
+                                </div>
+                            </div>
+                            <div class="form-row-split">
+                                <div class="form-group">
+                                    <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> State <span>*</span></label>
+                                    <select id="addr-state" required>
+                                        <option value="" disabled selected>Select state</option>
+                                        <option value="West Bengal">West Bengal</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Delhi">Delhi</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> PIN Code <span>*</span></label>
+                                    <input type="text" id="addr-pin" placeholder="Enter PIN code" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cancel" id="cancelModalBtn">Cancel</button>
+                        <button type="submit" class="btn-save">Save Address</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Injection -->
+    <div id="footer-placeholder"></div>
+    
+    <script src="/js/core/components.js"></script>
+    <script src="/js/core/layout.js"></script>
+    <script src="/js/core/router.js"></script>
+    <!-- External JS specific for this page -->
+    <script src="/js/pages/manage-addresses.js"></script>
+</body>
+</html>

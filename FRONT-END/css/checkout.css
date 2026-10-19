@@ -1,0 +1,542 @@
+/* /css/checkout.css */
+
+html, body {
+    overflow-x: hidden;
+}
+
+.checkout-page-wrapper {
+    background-color: #FDF9EE;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #2D2D2D;
+    min-height: 100vh;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-page-wrapper * {
+    box-sizing: border-box;
+}
+
+/* ============================
+   TOP SECTION
+   ============================ */
+.page-top-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.title-block { margin-bottom: 30px; }
+.page-title {
+    font-family: 'Georgia', serif;
+    font-size: 2.8rem;
+    color: #5C1E1B;
+    margin: 0 0 5px 0;
+    font-weight: normal;
+}
+.title-divider svg { display: block; }
+.page-subtitle { color: #5C1E1B; font-size: 1.05rem; margin: 10px 0 0 0; }
+
+/* ============================
+   MAIN LAYOUT GRID
+   ============================ */
+.checkout-layout {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.7fr 1fr; 
+    gap: 30px;
+    align-items: start;
+}
+
+.left-column, .right-column { display: flex; flex-direction: column; gap: 20px; }
+
+/* ============================
+   LEFT COLUMN: CHECKOUT STEPS
+   ============================ */
+.checkout-step {
+    background: #FFFDF7; 
+    border: 1px solid #D0BFA5; 
+    border-radius: 12px;
+    padding: 25px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.step-header {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;
+}
+
+.step-title-group { display: flex; align-items: center; gap: 15px; }
+
+.step-number {
+    background-color: #5C1E1B; color: white; width: 28px; height: 28px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-weight: bold; font-size: 1rem; flex-shrink: 0;
+}
+
+.step-title-group h3 {
+    font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.3rem; margin: 0;
+    display: flex; align-items: center; gap: 10px;
+}
+.step-title-group h3 svg { width: 22px; height: 22px; }
+
+.title-stacked p { margin: 5px 0 0 0; font-size: 0.9rem; color: #666; }
+.review-title { font-size: 1.6rem !important; }
+
+.step-actions { display: flex; gap: 15px; align-items: center; }
+
+.btn-text { background: transparent; border: none; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: 0.2s; }
+.text-red { color: #C20A35; }
+.text-red:hover { color: #8C2B22; }
+
+.btn-outline-small {
+    background: transparent; color: #8C2B22; border: 1px solid #D0BFA5;
+    padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 500;
+    cursor: pointer; display: flex; align-items: center; gap: 6px; transition: 0.3s;
+}
+.btn-outline-small:hover { background: rgba(140, 43, 34, 0.05); border-color: #8C2B22; }
+.btn-outline-small svg { width: 14px; height: 14px; }
+
+/* Review Step Alert & Checkbox */
+.review-alert {
+    display: flex; align-items: center; gap: 10px;
+    background: #F9FBE7; border: 1px solid #E0E0E0; border-radius: 6px;
+    padding: 12px 15px; margin-bottom: 20px;
+}
+.review-alert svg { width: 20px; height: 20px; flex-shrink: 0; }
+.review-alert span { color: #555; font-size: 0.9rem; }
+
+.custom-checkbox-row {
+    display: flex; align-items: center; gap: 10px; cursor: pointer;
+}
+.custom-checkbox-row input { display: none; }
+.checkbox-box {
+    width: 20px; height: 20px; border: 2px solid #5C1E1B; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center; background: transparent; transition: 0.2s;
+}
+.custom-checkbox-row input:checked + .checkbox-box { background: #5C1E1B; }
+.custom-checkbox-row span { font-size: 0.95rem; color: #444; }
+.custom-checkbox-row a { color: #5C1E1B; font-weight: 600; text-decoration: none; }
+.custom-checkbox-row a:hover { text-decoration: underline; }
+
+/* ============================
+   CUSTOM RADIO CARDS
+   ============================ */
+.address-list, .payment-list { display: flex; flex-direction: column; gap: 15px; }
+
+.radio-card {
+    display: flex; align-items: flex-start; gap: 15px;
+    border: 1px solid #E0D4C3; border-radius: 8px; padding: 15px 20px;
+    cursor: pointer; transition: 0.2s; background: #FFFFFF; position: relative;
+}
+.radio-card input[type="radio"] { position: absolute; opacity: 0; cursor: pointer; }
+
+.custom-radio {
+    width: 20px; height: 20px; border: 2px solid #B0B0B0; border-radius: 50%;
+    margin-top: 2px; position: relative; flex-shrink: 0;
+}
+.radio-card input:checked ~ .custom-radio { border-color: #C20A35; }
+.radio-card input:checked ~ .custom-radio::after {
+    content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 10px; height: 10px; background-color: #C20A35; border-radius: 50%;
+}
+.radio-card.selected { border-color: #F8BBD0; background-color: #FFF5F5; }
+
+.card-content { flex: 1; display: flex; flex-direction: column; gap: 5px; }
+.card-title-row { display: flex; align-items: center; gap: 10px; }
+.card-title-row h4 { font-family: 'Georgia', serif; color: #2D2D2D; font-size: 1.1rem; margin: 0; }
+.badge-default { background: #F3E5D8; color: #A05C33; font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; font-weight: 600;}
+.card-content p { color: #666; font-size: 0.9rem; margin: 0; line-height: 1.4; }
+.card-content .phone { font-weight: 500; color: #555; margin-top: 4px;}
+
+.btn-edit {
+    background: transparent; color: #8C2B22; border: 1px solid #E0D4C3;
+    padding: 6px 15px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; display: flex; align-items: center; gap: 6px; transition: 0.3s; background: #FFF;
+}
+.btn-edit:hover { background: #F9F9F9; border-color: #C20A35;}
+
+.payment-card { align-items: center; padding: 12px 20px; }
+.payment-card .custom-radio { margin-top: 0; }
+.payment-icon { width: 30px; display: flex; justify-content: center; color: #5C1E1B;}
+.payment-icon svg { width: 24px; height: 24px; }
+.upi-icon { font-style: italic; font-weight: 800; color: #1565C0; font-family: sans-serif; font-size: 0.9rem;}
+
+
+/* ============================
+   RIGHT COLUMN: SUMMARY WIDGETS
+   ============================ */
+.summary-widget {
+    background: #FFFDF7; border: 1px solid #D0BFA5; border-radius: 12px;
+    padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.widget-head {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid rgba(140, 43, 34, 0.1); padding-bottom: 12px; margin-bottom: 15px;
+}
+.widget-head h3 {
+    font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.15rem; margin: 0;
+    display: flex; align-items: center; gap: 10px;
+}
+.widget-head h3 svg { width: 20px; height: 20px; }
+
+.btn-text-small {
+    color: #C20A35; font-size: 0.85rem; font-weight: 600; text-decoration: none;
+    display: flex; align-items: center; gap: 4px; transition: 0.2s;
+}
+
+.checkout-item-list { display: flex; flex-direction: column; gap: 15px; }
+.checkout-item { display: flex; gap: 15px; align-items: center; padding-bottom: 15px; border-bottom: 1px dashed #E0D4C3;}
+.checkout-item:last-child { border-bottom: none; padding-bottom: 0; }
+.checkout-item img { width: 60px; height: 60px; border-radius: 6px; object-fit: cover; }
+.item-info { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+.item-info h4 { font-family: 'Georgia', serif; color: #8C2B22; font-size: 1rem; margin: 0; }
+.item-info span { color: #8C8C8C; font-size: 0.8rem; }
+.item-price { color: #2D2D2D; font-size: 1rem; font-weight: 700;}
+
+.coupon-box { display: flex; gap: 10px; }
+.coupon-box input {
+    flex: 1; padding: 10px 15px; border: 1px solid #D0D0D0; border-radius: 6px;
+    font-size: 0.95rem; outline: none; background: #FFF; width: 0; 
+}
+.coupon-box button {
+    background: #5C1E1B; color: white; border: none; border-radius: 6px;
+    padding: 0 20px; font-weight: 600; cursor: pointer; transition: 0.2s; flex-shrink: 0;
+}
+
+/* Price Details */
+.price-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 15px; border-bottom: 1px solid rgba(140, 43, 34, 0.1); padding-bottom: 15px;}
+.price-row { display: flex; justify-content: space-between; font-size: 0.95rem; }
+.price-row span { color: #666; }
+.price-row strong { color: #2D2D2D; }
+.text-green { color: #2E7D32 !important; }
+
+.price-total-block { display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; text-align: right;}
+.total-header { display: flex; justify-content: space-between; align-items: center; }
+.total-header span { font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.3rem; font-weight: bold;}
+.total-header strong { font-size: 1.5rem; color: #5C1E1B; }
+.tax-note { font-size: 0.75rem; color: #8C8C8C; }
+
+/* Delivery Estimate Banner */
+.delivery-estimate {
+    display: flex; align-items: center; gap: 15px;
+    background: #F4F8F1; border: 1px solid #E4EFE0; border-radius: 8px; padding: 15px; margin-bottom: 20px;
+}
+.icon-circle {
+    background: #E8F5E9; width: 40px; height: 40px; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center; flex-shrink: 0;
+}
+.icon-circle svg { width: 20px; height: 20px; }
+.estimate-text { display: flex; flex-direction: column; gap: 2px;}
+.estimate-text strong { font-size: 0.95rem; color: #2E7D32;}
+.estimate-text span { font-size: 0.85rem; color: #666;}
+
+/* Disabled Grey Button */
+.btn-pay {
+    width: 100%; border-radius: 8px; padding: 16px;
+    font-size: 1.15rem; font-weight: 600; display: flex; justify-content: center; align-items: center; gap: 10px;
+    transition: 0.3s; border: none;
+}
+.btn-disabled {
+    background: #E0E0E0; color: #A0A0A0; cursor: not-allowed; min-height: 56px;
+}
+.btn-pay.active-orange {
+    background: #E67E22; color: white; cursor: pointer; box-shadow: 0 4px 6px rgba(230, 126, 34, 0.2);
+}
+.btn-pay.active-orange:hover { background: #D35400; transform: translateY(-1px);}
+.btn-pay svg { width: 20px; height: 20px; }
+
+.safe-checkout {
+    text-align: center; color: #8C8C8C; font-size: 0.8rem; margin: 15px 0 0 0;
+    display: flex; justify-content: center; align-items: center; gap: 6px;
+}
+.safe-checkout svg { width: 14px; height: 14px; }
+
+/* Trust Badges Widget */
+.trust-badges-widget {
+    display: flex; justify-content: space-between; align-items: center; padding: 25px 15px;
+}
+.trust-item {
+    display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; flex: 1;
+}
+.trust-item svg { width: 24px; height: 24px; margin-bottom: 5px;}
+.trust-item h5 { font-size: 0.75rem; color: #5C1E1B; margin: 0; font-weight: 700; text-transform: uppercase;}
+.trust-item span { font-size: 0.7rem; color: #8C8C8C; }
+
+
+/* ============================
+   SHARED BOTTOM BANNER
+   ============================ */
+.shared-bottom-wrapper { position: relative; width: 100%; margin-top: auto; }
+.shared-bottom-wrapper .wave-divider { line-height: 0; background-color: transparent; }
+.shared-bottom-wrapper .wave-divider svg { width: 100%; height: 60px; display: block; }
+.shared-bottom-banner { background-color: #3A100E; color: #FFFDF7; text-align: center; padding: 20px 20px 50px; }
+.shared-bottom-banner .banner-icon { width: 40px; height: 40px; margin-bottom: 15px; }
+.shared-bottom-banner h2 { font-family: 'Georgia', serif; font-size: 1.8rem; font-weight: 300; margin: 0 0 20px 0; line-height: 1.4; }
+.center-div { display: flex; justify-content: center; }
+
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 991px) {
+    .checkout-layout { grid-template-columns: 1fr; gap: 20px; }
+    .right-column { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    .step-header { flex-wrap: wrap; gap: 15px; }
+}
+
+@media (max-width: 600px) {
+    .radio-card { flex-direction: column; align-items: flex-start; }
+    .custom-radio { position: absolute; top: 15px; left: 20px; }
+    .card-content { padding-left: 30px; width: 100%; }
+    .btn-edit { align-self: flex-end; margin-top: 10px; }
+    
+    .payment-card { flex-direction: row; align-items: center; }
+    .payment-card .card-content { padding-left: 0; }
+    
+    .trust-badges-widget { flex-direction: column; gap: 20px; }
+}
+
+
+/* --- PREMIUM ADDRESS FORM UI --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 1.5rem;
+}
+
+.maroon-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #3A100E;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.maroon-label span {
+    color: #C20A35; /* Red Asterisk */
+}
+
+.address-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.address-form input[type="text"],
+.address-form input[type="tel"],
+.address-form select,
+.address-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    background: white;
+    transition: border-color 0.3s;
+}
+
+.address-form input:focus,
+.address-form select:focus,
+.address-form textarea:focus {
+    outline: none;
+    border-color: #C5A880;
+}
+
+/* Custom Radio Boxes */
+.radio-group-boxes {
+    display: flex;
+    gap: 1rem;
+}
+
+.radio-box {
+    flex: 1;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.radio-box input {
+    display: none;
+}
+
+.radio-box .icon-box {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.radio-box .icon-home { background: #ffedd5; color: #ea580c; }
+.radio-box .icon-office { background: #dbeafe; color: #2563eb; }
+.radio-box .icon-other { background: #dcfce7; color: #16a34a; }
+
+.radio-box span {
+    font-weight: 600;
+    color: #3A100E;
+    font-size: 0.9rem;
+}
+
+.radio-box .radio-circle {
+    width: 18px; height: 18px;
+    border: 2px solid #d1d5db;
+    border-radius: 50%;
+    margin-top: 0.25rem;
+}
+
+/* Active State matching screenshot */
+.radio-box.active {
+    border: 1px solid #C20A35;
+    box-shadow: 0 0 0 1px #C20A35;
+    background: #fffafa;
+}
+
+.radio-box.active .radio-circle {
+    border-color: #C20A35;
+    background: #C20A35;
+    box-shadow: inset 0 0 0 3px #fffafa;
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* =========================================================
+   ONLY MODAL AND PREMIUM FORM CSS (ADD TO VERY BOTTOM)
+   ========================================================= */
+
+/* 1. Modal Overlay Background (Makes it float and hide) */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 2. Modal Box */
+.modal-container {
+    background: #FFF9F0;
+    width: 90%;
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.modal-overlay.active .modal-container {
+    transform: translateY(0);
+}
+
+.btn-close-modal {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: none; border: none;
+    font-size: 1.5rem; cursor: pointer; color: #6b7280;
+    transition: color 0.2s;
+}
+
+.btn-close-modal:hover { color: #C20A35; }
+
+/* 3. Address Form Grid (From Manage Addresses) */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 1.5rem;
+}
+
+.maroon-label {
+    display: flex; align-items: center; gap: 0.5rem;
+    color: #3A100E; font-weight: 600;
+    margin-bottom: 0.5rem; font-size: 0.95rem;
+}
+
+.maroon-label span { color: #C20A35; }
+
+.address-form .form-group { margin-bottom: 1.5rem; }
+
+.address-form input[type="text"],
+.address-form input[type="tel"],
+.address-form select,
+.address-form textarea {
+    width: 100%; padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db; border-radius: 6px;
+    font-family: inherit; font-size: 1rem;
+    background: white; transition: border-color 0.3s;
+}
+
+.address-form input:focus, .address-form select:focus, .address-form textarea:focus {
+    outline: none; border-color: #C5A880;
+}
+
+/* 4. Premium Custom Radio Boxes (Home/Office/Other) */
+.radio-group-boxes { display: flex; gap: 1rem; }
+
+.radio-box {
+    flex: 1; border: 1px solid #d1d5db; border-radius: 8px;
+    padding: 1rem 0.5rem; display: flex; flex-direction: column;
+    align-items: center; gap: 0.5rem; cursor: pointer;
+    background: white; transition: all 0.2s ease;
+}
+
+.radio-box input { display: none; }
+
+.radio-box .icon-box {
+    width: 40px; height: 40px; border-radius: 8px;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.radio-box .icon-home { background: #ffedd5; color: #ea580c; }
+.radio-box .icon-office { background: #dbeafe; color: #2563eb; }
+.radio-box .icon-other { background: #dcfce7; color: #16a34a; }
+
+.radio-box span { font-weight: 600; color: #3A100E; font-size: 0.9rem; }
+
+.radio-box .radio-circle {
+    width: 18px; height: 18px; border: 2px solid #d1d5db;
+    border-radius: 50%; margin-top: 0.25rem; transition: all 0.2s;
+}
+
+.radio-box.active {
+    border: 1px solid #C20A35; box-shadow: 0 0 0 1px #C20A35; background: #fffafa;
+}
+
+.radio-box.active .radio-circle {
+    border-color: #C20A35; background: #C20A35; box-shadow: inset 0 0 0 3px #fffafa;
+}
+
+/* 5. Responsive Form */
+@media (max-width: 768px) {
+    .form-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+}

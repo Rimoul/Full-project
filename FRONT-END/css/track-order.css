@@ -1,0 +1,291 @@
+/* /css/track-order.css */
+
+/* Strict Lock: Prevents accidental side-scrolling */
+html, body {
+    overflow-x: hidden;
+}
+
+.track-order-wrapper {
+    background-color: #FDF9EE;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #2D2D2D;
+    min-height: 100vh;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.track-order-wrapper * {
+    box-sizing: border-box; /* Forces padding to stay within element widths */
+}
+
+/* ============================
+   TOP SECTION
+   ============================ */
+.page-top-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.title-block { margin-bottom: 30px; }
+.page-title {
+    font-family: 'Georgia', serif;
+    font-size: 2.8rem;
+    color: #5C1E1B;
+    margin: 0 0 5px 0;
+    font-weight: normal;
+}
+.title-divider svg { display: block; }
+.page-subtitle { color: #5C1E1B; font-size: 1.05rem; margin: 10px 0 0 0; }
+
+/* ============================
+   MAIN LAYOUT GRID
+   ============================ */
+.track-layout {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2.3fr 1fr; /* Precisely balances the left and right columns */
+    gap: 30px;
+    align-items: start;
+}
+
+.left-column, .right-column { display: flex; flex-direction: column; gap: 20px; }
+
+/* ============================
+   LEFT COLUMN COMPONENTS
+   ============================ */
+.track-card {
+    background: #FFFDF7; 
+    border: 1px solid #D0BFA5; 
+    border-radius: 12px;
+    padding: 25px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.card-head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    border-bottom: 1px solid rgba(140, 43, 34, 0.1);
+    padding-bottom: 15px; margin-bottom: 20px;
+}
+.card-head h3 {
+    font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.25rem; margin: 0;
+    display: flex; align-items: center; gap: 10px;
+}
+.card-head h3 svg { width: 22px; height: 22px; }
+
+/* Order Snapshot specifics */
+.order-id-block h2 {
+    font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.5rem; margin: 0 0 5px;
+    display: flex; align-items: center; gap: 10px;
+}
+.order-id-block h2 svg { width: 24px; height: 24px; }
+.order-date { color: #666; font-size: 0.95rem; margin: 0; }
+
+.status-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: 600;
+}
+.status-badge svg { width: 16px; height: 16px; }
+.badge-green { background: #E8F5E9; color: #1B5E20; }
+
+.product-snapshot { display: flex; gap: 20px; align-items: center;}
+.product-snapshot img { width: 90px; height: 90px; border-radius: 8px; object-fit: cover; }
+.snapshot-details { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.title-row { display: flex; align-items: center; gap: 15px; flex-wrap: wrap;}
+.title-row h3 { font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.15rem; margin: 0; }
+.tag { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+.tag-traditional { background: #F3E5D8; color: #A05C33; }
+.snapshot-details .weight { color: #666; font-size: 0.95rem; }
+.snapshot-details .price { color: #2D2D2D; font-size: 1.1rem; font-weight: 700; }
+
+/* ============================
+   VERTICAL TIMELINE (Fixed & Robust)
+   ============================ */
+.vertical-timeline {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.track-step {
+    display: flex;
+    align-items: stretch; /* Forces indicator column to match content height exactly */
+    gap: 20px;
+}
+
+/* Indicator holds the circle and the line under it */
+.step-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 24px; /* Fixed width keeps lines vertically perfect */
+    flex-shrink: 0;
+}
+
+.step-icon {
+    width: 24px; 
+    height: 24px; 
+    border-radius: 50%;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    z-index: 2;
+}
+.step-icon svg { width: 14px; height: 14px; }
+
+/* The vertical connecting line */
+.step-line {
+    width: 2px;
+    flex: 1; /* Stretches dynamically to fill the space to the next step */
+    min-height: 40px; 
+    margin: 5px 0;
+}
+
+/* Hide line on the last step */
+.track-step:last-child .step-line { display: none; }
+
+/* Use CSS Grid to lock the two text columns in place */
+.step-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Left text block takes 1 part, right desc takes 1.5 parts */
+    gap: 20px;
+    padding-bottom: 35px; /* Creates spacing between steps */
+    padding-top: 2px; 
+}
+.track-step:last-child .step-content { padding-bottom: 10px; }
+
+.step-main { display: flex; flex-direction: column; gap: 4px; }
+.step-main h4 { font-family: 'Georgia', serif; font-size: 1.1rem; margin: 0; color: #2D2D2D;}
+.step-date { color: #8C8C8C; font-size: 0.85rem; }
+.step-desc { color: #666; font-size: 0.95rem; padding-top: 2px;}
+
+/* Timeline States Colors */
+.track-step.completed .step-icon { background: #1B5E20; color: white; }
+.track-step.completed .step-line { background: #1B5E20; }
+.track-step.current .step-icon { background: #1B5E20; color: white; }
+.track-step.current .step-line { background: #D0D0D0; }
+.track-step.pending .step-icon { background: #FFF; border: 2px solid #D0D0D0; }
+
+.text-green h4, .text-green { color: #1B5E20 !important; font-weight: 500; }
+
+/* Delivery Alert Box */
+.delivery-alert {
+    display: flex; align-items: center; gap: 15px;
+    background: #E8F5E9; border-radius: 8px; padding: 15px 20px; 
+    margin-top: 15px;
+}
+.delivery-alert .alert-icon { color: #1B5E20; }
+.delivery-alert .alert-icon svg { width: 32px; height: 32px; }
+.alert-text { display: flex; flex-direction: column; gap: 3px;}
+.alert-text strong { color: #1B5E20; font-size: 1rem; }
+.alert-text span { color: #4CAF50; font-size: 0.9rem; }
+
+
+/* ============================
+   RIGHT COLUMN COMPONENTS
+   ============================ */
+.sidebar-widget {
+    background: #FFFDF7; 
+    border: 1px solid #D0BFA5; 
+    border-radius: 12px;
+    padding: 20px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.widget-head {
+    border-bottom: 1px solid rgba(140, 43, 34, 0.1);
+    padding-bottom: 12px; margin-bottom: 15px;
+}
+.widget-head h3 {
+    font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.15rem; margin: 0;
+    display: flex; align-items: center; gap: 10px;
+}
+.widget-head h3 svg { width: 22px; height: 22px; }
+
+/* Summary Items */
+.mini-snapshot { display: flex; gap: 15px; align-items: center; margin-bottom: 20px; }
+.mini-snapshot img { width: 60px; height: 60px; border-radius: 6px; object-fit: cover; }
+.mini-details { display: flex; flex-direction: column; gap: 3px; }
+.mini-details h4 { font-family: 'Georgia', serif; color: #8C2B22; font-size: 1rem; margin: 0; }
+.mini-details span { color: #8C8C8C; font-size: 0.8rem; }
+.mini-details strong { color: #2D2D2D; font-size: 1rem; }
+
+.price-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 15px; border-bottom: 1px solid rgba(140, 43, 34, 0.1); padding-bottom: 15px;}
+.price-row { display: flex; justify-content: space-between; font-size: 0.95rem; }
+.price-row span { color: #666; }
+.price-row strong { color: #2D2D2D; }
+
+.price-total { display: flex; justify-content: space-between; align-items: center; }
+.price-total span { font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.2rem; font-weight: bold;}
+.price-total strong { font-size: 1.3rem; color: #8C2B22; }
+
+/* Address Specifics */
+.address-content h4 { font-family: 'Georgia', serif; color: #5C1E1B; font-size: 1.05rem; margin: 0 0 8px; }
+.address-text { color: #666; font-size: 0.9rem; line-height: 1.5; margin: 0 0 12px; }
+.phone-text { display: flex; align-items: center; gap: 8px; color: #666; font-size: 0.9rem; font-weight: 500; margin: 0;}
+.phone-text svg { width: 16px; height: 16px; color: #8C2B22;}
+
+/* Buttons */
+.btn-outline {
+    background: transparent; color: #8C2B22; border: 1px solid #D0BFA5;
+    padding: 12px; border-radius: 6px; font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; transition: 0.3s;
+    display: flex; justify-content: center; align-items: center; gap: 8px;
+}
+.btn-outline:hover { background: rgba(140, 43, 34, 0.05); border-color: #8C2B22; }
+.btn-outline svg { width: 18px; height: 18px; }
+.w-100 { width: 100%; }
+
+/* Help Widget */
+.help-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.help-header svg { width: 24px; height: 24px; }
+.help-header h3 { font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.1rem; margin: 0; }
+.help-widget p { color: #666; font-size: 0.9rem; margin: 0 0 15px 0; }
+
+
+/* ============================
+   SHARED BOTTOM BANNER
+   ============================ */
+.shared-bottom-wrapper { position: relative; width: 100%; margin-top: auto; }
+.shared-bottom-wrapper .wave-divider { line-height: 0; background-color: transparent; }
+.shared-bottom-wrapper .wave-divider svg { width: 100%; height: 60px; display: block; }
+.shared-bottom-banner { background-color: #3A100E; color: #FFFDF7; text-align: center; padding: 20px 20px 50px; }
+.shared-bottom-banner .banner-icon { width: 40px; height: 40px; margin-bottom: 15px; }
+.shared-bottom-banner h2 { font-family: 'Georgia', serif; font-size: 1.8rem; font-weight: 300; margin: 0 0 20px 0; line-height: 1.4; }
+.center-div { display: flex; justify-content: center; }
+
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 991px) {
+    .track-layout { 
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+    }
+    
+    .right-column {
+        display: grid; 
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .sidebar-widget:first-child { grid-column: span 2; } /* Makes summary span full width on tablet */
+}
+
+@media (max-width: 768px) {
+    .right-column { display: flex; flex-direction: column; } 
+    .card-head { flex-wrap: wrap; gap: 10px; }
+    
+    /* Timeline Mobile adjustments */
+    .step-content { 
+        grid-template-columns: 1fr; /* Stacks the title/date on top of the description */
+        gap: 5px; 
+        padding-bottom: 25px;
+    }
+}

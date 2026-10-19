@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Order - Seazonal Swaad</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/track-order.css">
+</head>
+<body>
+
+    <!-- Header Injection -->
+    <div id="header-placeholder"></div>
+    
+    <main class="track-order-wrapper">
+        
+        <!-- Header Section -->
+        <div class="page-top-section">
+            <div class="title-block">
+                <h1 class="page-title">Track Order</h1>
+                <div class="title-divider">
+                    <svg viewBox="0 0 150 10" width="150" height="10">
+                        <line x1="0" y1="5" x2="150" y2="5" stroke="#C5A880" stroke-width="1"></line>
+                        <polygon points="75,2 78,5 75,8 72,5" fill="#C5A880"></polygon>
+                    </svg>
+                </div>
+                <p class="page-subtitle">Check the latest status and estimated delivery time for your order.</p>
+            </div>
+        </div>
+
+        <!-- Main Layout Grid -->
+        <section class="track-layout" id="track-order-main-container" style="display: none;">
+            
+            <!-- LEFT COLUMN: Order Info & Timeline -->
+            <div class="left-column">
+                
+                <!-- Order Overview Card -->
+                <div class="track-card">
+                    <div class="card-head order-head">
+                        <div class="order-id-block">
+                            <h2 id="to-order-id">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#8C2B22" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                                Loading...
+                            </h2>
+                            <p class="order-date" id="to-order-date">Placed on ---</p>
+                        </div>
+                        <!-- JS Injected Status Badge -->
+                        <div id="to-status-badge-container"></div>
+                    </div>
+                    
+                    <!-- JS Injected Product Snapshot -->
+                    <div class="product-snapshot" id="to-product-snapshot"></div>
+                </div>
+
+                <!-- Vertical Tracking Timeline Card -->
+                <div class="track-card">
+                    <div class="card-head">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#8C2B22" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                            Order Tracking
+                        </h3>
+                    </div>
+
+                    <!-- JS Injected Vertical Timeline -->
+                    <div class="vertical-timeline" id="to-vertical-timeline"></div>
+
+                    <!-- JS Injected Delivery Estimate Alert Box -->
+                    <div class="delivery-alert" id="to-delivery-alert" style="display: none;"></div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: Sidebar Summary & Address -->
+            <div class="right-column">
+                
+                <!-- Order Summary Widget -->
+                <div class="sidebar-widget">
+                    <div class="widget-head">
+                        <h3><svg viewBox="0 0 24 24" fill="none" stroke="#8C2B22" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg> Order Summary</h3>
+                    </div>
+                    
+                    <!-- JS Injected Mini Snapshot -->
+                    <div class="mini-snapshot" id="to-summary-snapshot"></div>
+
+                    <!-- JS Injected Price Breakdown -->
+                    <div class="price-list" id="to-price-list"></div>
+                    
+                    <!-- JS Injected Total -->
+                    <div class="price-total" id="to-price-total"></div>
+
+                    <!-- View Details Button -->
+                    <a href="/pages/order-details.html" id="to-view-details-btn" class="btn-outline w-100" style="display:inline-block; text-align:center; margin-top: 20px; text-decoration: none;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px; margin-right:6px; vertical-align:middle;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                        View Details
+                    </a>
+                </div>
+
+                <!-- Delivery Address Widget -->
+                <div class="sidebar-widget">
+                    <div class="widget-head">
+                        <h3><svg viewBox="0 0 24 24" fill="none" stroke="#8C2B22" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Delivery Address</h3>
+                    </div>
+                    <!-- JS Injected Address -->
+                    <div class="address-content" id="to-delivery-address"></div>
+                </div>
+
+                <!-- Need Help Widget -->
+                <div class="sidebar-widget help-widget">
+                    <div class="help-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#8C2B22" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+                        <h3>Need Help?</h3>
+                    </div>
+                    <p>Facing any issues with your order?</p>
+                    <a href="/pages/support.html" class="btn-outline w-100" style="display:inline-block; text-align:center; text-decoration:none;">Contact Support</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Loading / Error State -->
+        <div id="to-loading-state" style="text-align: center; padding: 5rem 1rem;">
+            <p>Loading tracking information...</p>
+        </div>
+
+        <!-- SHARED BOTTOM BANNER -->
+        <div class="shared-bottom-wrapper">
+            <div class="wave-divider">
+                <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="#3A100E"></path></svg>
+            </div>
+            <section class="shared-bottom-banner">
+                <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.5"><path d="M12 2c0 0-4 4-4 10s4 10 4 10 4-4 4-10-4-10-4-10z"></path></svg>
+                <h2>Bringing the taste of tradition<br>closer to you.</h2>
+                <div class="hero-divider center-div"><svg viewBox="0 0 150 10" width="150" height="10"><line x1="0" y1="5" x2="150" y2="5" stroke="#C5A880" stroke-width="1"></line><circle cx="75" cy="5" r="3" fill="#C5A880"></circle></svg></div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Footer Injection -->
+    <div id="footer-placeholder"></div>
+    
+    <script src="/js/core/components.js"></script>
+    <script src="/js/core/layout.js"></script>
+    <script src="/js/core/router.js"></script>
+    <!-- Dynamic Logic Script -->
+    <script src="/js/pages/track-order.js"></script>
+</body>
+</html>

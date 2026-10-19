@@ -1,0 +1,221 @@
+/* Base Footer Styles (Mobile First) */
+.site-footer {
+    background-color: var(--color-text, #0F172A); 
+    color: #ffffff;
+    padding: 40px 20px 20px;
+    font-family: var(--font-main, sans-serif);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Mobile Accordions Layout */
+.footer-links-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-nav-block {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accordion-toggle {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 1rem;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: left;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.accordion-toggle .arrow {
+    display: inline-block; /* REQUIRED for the rotate transform to work */
+    transition: transform 0.3s ease;
+}
+
+.accordion-content {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.accordion-content li {
+    margin-bottom: 10px;
+}
+
+.accordion-content a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+/* Updated Hover Color: Mango/Saffron Orange */
+.accordion-content a:hover {
+    color: var(--color-cta, #F59E0B);
+}
+
+/* Connect Section with SVG Icons */
+.footer-connect {
+    text-align: center;
+}
+
+.footer-connect h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.icon:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-connect p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.btn-footer-cta {
+    background-color: var(--color-alert, #C2410C);
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: var(--radius-sm, 4px);
+    cursor: pointer;
+    width: 100%;
+    max-width: 350px;
+    transition: opacity 0.2s;
+}
+
+.btn-footer-cta:hover {
+    opacity: 0.9;
+}
+
+/* Bottom Legal Section */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.legal-links {
+    margin-bottom: 15px;
+    color: #888;
+}
+
+.legal-links a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin: 0 5px;
+    transition: color 0.2s;
+}
+
+/* Update this specific block in your footer.css */
+.legal-links a:hover {
+    color: var(--color-cta, #F59E0B);
+}
+
+.copyright-text {
+    font-size: 0.75rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* =========================================
+   DESKTOP MEDIA QUERY
+   ========================================= */
+@media (min-width: 992px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-links-grid {
+        flex-direction: row;
+        gap: 60px;
+        flex: 1;
+    }
+
+    .footer-nav-block {
+        border-bottom: none;
+    }
+
+    .accordion-toggle {
+        cursor: default;
+        padding-bottom: 20px;
+    }
+
+    .accordion-toggle .arrow {
+        display: none; 
+    }
+
+    .accordion-content {
+        max-height: none !important; 
+        overflow: visible;
+        padding-bottom: 15px;
+    }
+
+    .footer-connect {
+        text-align: left;
+        flex: 0 1 400px;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+    }
+
+    .footer-bottom {
+        text-align: left;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .copyright-text {
+        max-width: 60%;
+    }
+}

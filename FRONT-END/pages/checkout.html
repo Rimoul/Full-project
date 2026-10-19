@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Seazonal Swaad</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/checkout.css">
+</head>
+<body>
+    
+    <main class="checkout-page-wrapper">
+        
+        <!-- Header Section -->
+        <div class="page-top-section">
+            <div class="title-block">
+                <h1 class="page-title">Checkout</h1>
+                <div class="title-divider">
+                    <svg viewBox="0 0 150 10" width="150" height="10">
+                        <line x1="0" y1="5" x2="150" y2="5" stroke="#C5A880" stroke-width="1"></line>
+                        <polygon points="75,2 78,5 75,8 72,5" fill="#C5A880"></polygon>
+                    </svg>
+                </div>
+                <p class="page-subtitle">Complete your order and get your favourite sweets delivered.</p>
+            </div>
+        </div>
+
+        <!-- Main Checkout Layout Grid -->
+        <section class="checkout-layout">
+            
+            <!-- LEFT COLUMN: Steps -->
+            <div class="left-column">
+                
+                <!-- STEP 1: Delivery Address -->
+                <div class="checkout-step step-active">
+                    <div class="step-header">
+                                           <div class="step-title-group">
+                                               <span class="step-number">1</span>
+                                               <h3><svg viewBox="0 0 24 24" fill="none" stroke="#C20A35" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Delivery Address</h3>
+                                           </div>
+                                           <div class="step-actions">
+                                               <button type="button" class="btn-text text-red" id="btn-add-new-address">+ Add New Address</button>
+                                               <!-- The View All Button is back up here! -->
+                                               <button type="button" class="btn-outline-small" id="btn-view-all-addresses" style="display:none; align-items:center; gap:0.25rem;">
+                                                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px; height:16px;"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg> 
+                                                   View All Addresses
+                                               </button>
+                                           </div>
+                    </div>
+                    
+                    <!-- Address List (JS injects top 3 here) -->
+                    <div class="address-list" id="checkout-address-list"></div>
+                    
+                    <!-- Address List (JS injects up to 3 here) -->
+                    <div class="address-list" id="checkout-address-list"></div>
+
+                    <!-- View More Button (JS shows this if > 3 addresses) -->
+                    <div id="view-more-address-container" style="text-align: center; margin-top: 1rem; display: none;">
+                        <button type="button" class="btn-outline-small" id="btn-view-all-addresses" style="display:inline-flex; align-items:center; justify-content:center; gap:0.25rem; width:100%; border-color:#d1d5db; color:#374151;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px; height:16px;"><polyline points="6 9 12 15 18 9"></polyline></svg> 
+                            View All Addresses
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Payment Method -->
+                <div class="checkout-step step-active">
+                    <div class="step-header">
+                        <div class="step-title-group">
+                            <span class="step-number">2</span>
+                            <h3><svg viewBox="0 0 24 24" fill="none" stroke="#C20A35" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg> Payment Method</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-list" id="checkout-payment-list">
+                        <label class="radio-card payment-card selected">
+                            <input type="radio" name="payment_method" value="upi" checked>
+                            <div class="custom-radio"></div>
+                            <div class="payment-icon upi-icon">UPI</div>
+                            <div class="card-content">
+                                <h4>UPI (Google Pay, PhonePe, Paytm, etc.)</h4>
+                            </div>
+                        </label>
+
+                        <label class="radio-card payment-card">
+                            <input type="radio" name="payment_method" value="card">
+                            <div class="custom-radio"></div>
+                            <div class="payment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></div>
+                            <div class="card-content">
+                                <h4>Credit / Debit Card</h4>
+                            </div>
+                        </label>
+
+                        <label class="radio-card payment-card">
+                            <input type="radio" name="payment_method" value="netbanking">
+                            <div class="custom-radio"></div>
+                            <div class="payment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="20" width="20" height="2"></rect><polygon points="12 2 2 7 22 7"></polygon><line x1="6" y1="18" x2="6" y2="9"></line><line x1="10" y1="18" x2="10" y2="9"></line><line x1="14" y1="18" x2="14" y2="9"></line><line x1="18" y1="18" x2="18" y2="9"></line></svg></div>
+                            <div class="card-content">
+                                <h4>Net Banking</h4>
+                            </div>
+                        </label>
+
+                        <label class="radio-card payment-card">
+                            <input type="radio" name="payment_method" value="cod">
+                            <div class="custom-radio"></div>
+                            <div class="payment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8"></path><path d="M10 10h4"></path><path d="M10 14h4"></path></svg></div>
+                            <div class="card-content">
+                                <h4>Cash on Delivery (COD)</h4>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Review & Place Order -->
+                <div class="checkout-step step-active">
+                    <div class="step-header">
+                        <div class="step-title-group">
+                            <span class="step-number">3</span>
+                            <div class="title-stacked">
+                                <h3 class="review-title">Review & Place Order</h3>
+                                <p>One last check before your sweets are on their way.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-alert">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>Please confirm your delivery address and payment method before placing your order.</span>
+                    </div>
+
+                    <label class="custom-checkbox-row">
+                        <input type="checkbox" id="terms-checkbox" >
+                        <div class="checkbox-box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                        <span>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</span>
+                    </label>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: Summary Widgets -->
+            <div class="right-column">
+                
+                <!-- Order Items -->
+                <div class="summary-widget">
+                    <div class="widget-head">
+                        <h3 id="checkout-items-header"><svg viewBox="0 0 24 24" fill="none" stroke="#C20A35" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> Order Items (0)</h3>
+                        <a href="/pages/cart.html" class="btn-text-small" style="text-decoration:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Edit Cart</a>
+                    </div>
+                    
+                    <!-- Items List (Hollowed out for JS injection) -->
+                    <div class="checkout-item-list" id="checkout-items-container">
+                         <!-- JS will inject items here -->
+                    </div>
+                </div>
+
+                <!-- Coupon Section -->
+                <div class="summary-widget">
+                    <div class="widget-head">
+                        <h3><svg viewBox="0 0 24 24" fill="none" stroke="#C20A35" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> Have a coupon?</h3>
+                    </div>
+                    <div class="coupon-box">
+                        <input type="text" id="coupon-input" placeholder="Enter promo code">
+                        <button id="btn-apply-coupon">Apply</button>
+                    </div>
+                    <p id="coupon-message" style="display:none; font-size: 0.85rem; margin-top: 0.5rem;"></p>
+                </div>
+
+                <!-- Price Details & Pay Button -->
+                <div class="summary-widget">
+                    
+                    <div class="price-list">
+                        <div class="price-row"><span id="checkout-subtotal-label">Item Total (0 items)</span> <strong id="checkout-item-total">₹0</strong></div>
+                        <div class="price-row" id="checkout-discount-row" style="display:none;"><span>Discount</span> <strong class="text-green" id="checkout-discount">- ₹0</strong></div>
+                        <div class="price-row"><span>Delivery Charge</span> <strong id="checkout-delivery">₹0</strong></div>
+                    </div>
+                    
+                    <div class="price-total-block">
+                        <div class="total-header">
+                            <span>Total Payable</span>
+                            <strong id="checkout-final-total">₹0</strong>
+                        </div>
+                        <span class="tax-note">Inclusive of all applicable taxes</span>
+                    </div>
+
+                    <div class="delivery-estimate">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2"><path d="M12 22v-7l-3-3m6 0l-3 3"></path><path d="M5 12a7 7 0 0 1 14 0 7 7 0 0 1-14 0z"></path></svg>
+                        </div>
+                        <div class="estimate-text">
+                            <strong>Expected Delivery</strong>
+                            <span>Within 3–5 business days</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-pay btn-disabled" id="btn-pay-now" disabled>Place Order</button>
+                    
+                    <p class="safe-checkout">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        Safe & secure checkout
+                    </p>
+                </div>
+
+                <!-- Trust Badges Widget -->
+                <div class="summary-widget trust-badges-widget">
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#C5A880" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                        <h5>Freshly Prepared</h5>
+                        <span>Made with care</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#C5A880" stroke-width="1.5"><path d="M12 22v-7l-3-3m6 0l-3 3"></path><path d="M5 12a7 7 0 0 1 14 0 7 7 0 0 1-14 0z"></path></svg>
+                        <h5>Tradition Delivered</h5>
+                        <span>Across the state</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#C5A880" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        <h5>Secure Payments</h5>
+                        <span>Safe checkout</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SHARED BOTTOM BANNER -->
+        <div class="shared-bottom-wrapper">
+            <div class="wave-divider">
+                <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="#3A100E"></path></svg>
+            </div>
+            <section class="shared-bottom-banner">
+                <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.5"><path d="M12 2c0 0-4 4-4 10s4 10 4 10 4-4 4-10-4-10-4-10z"></path></svg>
+                <h2>Bringing the taste of tradition<br>closer to you.</h2>
+                <div class="hero-divider center-div"><svg viewBox="0 0 150 10" width="150" height="10"><line x1="0" y1="5" x2="150" y2="5" stroke="#C5A880" stroke-width="1"></line><circle cx="75" cy="5" r="3" fill="#C5A880"></circle></svg></div>
+            </section>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- CHECKOUT ADDRESS MODALS -->
+        <!-- ============================================== -->
+
+        <!-- 1. Address Selector Modal (With Search) -->
+        <div class="modal-overlay" id="checkoutAddressSelectorModal">
+            <div class="modal-container" style="max-width: 550px;">
+                <button class="btn-close-modal" id="closeSelectorBtn" aria-label="Close">&times;</button>
+                <div class="modal-header">
+                    <h2 style="font-size:1.5rem; color:#3A100E; margin-bottom:0.5rem;">Select Delivery Address</h2>
+                    <div class="hero-divider"><svg viewBox="0 0 150 10" width="150" height="10"><line x1="0" y1="5" x2="150" y2="5" stroke="#C5A880" stroke-width="1"></line><circle cx="75" cy="5" r="3" fill="#C5A880"></circle></svg></div>
+                </div>
+                
+                <div style="margin: 1.5rem 0 1rem 0; position:relative;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" style="width:18px; position:absolute; left:12px; top:50%; transform:translateY(-50%);"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="address-search-input" placeholder="Search by name, city, or label..." style="width:100%; padding:0.75rem 1rem 0.75rem 2.5rem; border:1px solid #d1d5db; border-radius:6px; font-family:inherit;">
+                </div>
+
+                <div class="address-list" id="modal-address-list" style="max-height: 400px; overflow-y: auto; padding-right: 0.5rem;">
+                    <!-- JS will inject all saved addresses here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Add/Edit Address Form Modal (Premium UI) -->
+        <div class="modal-overlay" id="checkoutAddressFormModal">
+            <div class="modal-container" style="max-width: 900px; padding: 2.5rem;">
+                
+                <!-- Red Close Button -->
+                <button class="btn-close-modal" id="closeFormBtn" aria-label="Close" style="top: 1.5rem; right: 1.5rem; padding: 0; background: none;">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><circle cx="12" cy="12" r="10" fill="#C20A35"/><path d="M15 9l-6 6M9 9l6 6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+                
+                <div class="modal-header" style="text-align: center; margin-bottom: 2rem;">
+                    <h2 id="checkout-form-title" style="font-size: 2rem; color: #3A100E; margin-bottom: 0.5rem;">Add New Address</h2>
+                    <div class="hero-divider" style="display: flex; justify-content: center;"><svg viewBox="0 0 150 10" width="150" height="10"><line x1="0" y1="5" x2="150" y2="5" stroke="#C5A880" stroke-width="1"></line><circle cx="75" cy="5" r="3" fill="#C5A880"></circle></svg></div>
+                    <p style="color: #6b7280; margin-top: 0.5rem;">Add a new delivery address to your account.</p>
+                </div>
+
+                <form class="address-form" id="checkoutAddressForm">
+                    <!-- HIDDEN INPUT: So checkout.js still works without editing the JS! -->
+                    <input type="hidden" id="chk-addr-type" value="Home">
+
+                    <div class="form-grid">
+                        
+                        <!-- LEFT COLUMN -->
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label class="maroon-label">Address Type <span>*</span></label>
+                                <div class="radio-group-boxes">
+                                    <label class="radio-box active" onclick="document.getElementById('chk-addr-type').value='Home'; document.querySelectorAll('.radio-box').forEach(b=>b.classList.remove('active')); this.classList.add('active');">
+                                        <input type="radio" name="chkAddressRadio" value="Home" checked>
+                                        <div class="icon-box icon-home"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+                                        <span>Home</span>
+                                        <div class="radio-circle"></div>
+                                    </label>
+                                    <label class="radio-box" onclick="document.getElementById('chk-addr-type').value='Office'; document.querySelectorAll('.radio-box').forEach(b=>b.classList.remove('active')); this.classList.add('active');">
+                                        <input type="radio" name="chkAddressRadio" value="Office">
+                                        <div class="icon-box icon-office"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 21h18v-2H3v2zm4-16h2v2H7V5zm0 4h2v2H7V9zm0 4h2v2H7v-2zm4-8h2v2h-2V5zm0 4h2v2h-2V9zm0 4h2v2h-2v-2zm4-8h2v2h-2V5zm0 4h2v2h-2V9zm0 4h2v2h-2v-2zM3 21V3h18v18H3z"></path></svg></div>
+                                        <span>Office</span>
+                                        <div class="radio-circle"></div>
+                                    </label>
+                                    <label class="radio-box" onclick="document.getElementById('chk-addr-type').value='Other'; document.querySelectorAll('.radio-box').forEach(b=>b.classList.remove('active')); this.classList.add('active');">
+                                        <input type="radio" name="chkAddressRadio" value="Other">
+                                        <div class="icon-box icon-other"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"></path></svg></div>
+                                        <span>Other</span>
+                                        <div class="radio-circle"></div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg> Label (Optional)</label>
+                                <input type="text" id="chk-addr-label" placeholder="e.g. My Home, Uncle's House">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Recipient Name <span>*</span></label>
+                                <input type="text" id="chk-addr-name" placeholder="Enter recipient name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Phone Number <span>*</span></label>
+                                <div class="phone-input-group" style="display: flex; gap: 0.5rem;">
+                                    <select class="country-code" id="chk-addr-code" style="width: 80px;">
+                                        <option value="+91">+91</option>
+                                        <option value="+1">+1</option>
+                                    </select>
+                                    <input type="tel" id="chk-addr-phone" placeholder="Enter phone number" required style="flex: 1;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT COLUMN -->
+                        <div class="form-col">
+                            <h3 style="color: #3A100E; margin-bottom: 1.5rem; font-size: 1.25rem;">Address Details</h3>
+                            
+                            <div class="form-group">
+                                <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Address <span>*</span></label>
+                                <textarea id="chk-addr-line" rows="3" placeholder="House No., Street, Area" required></textarea>
+                            </div>
+
+                            <div class="form-row-split" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                                <div class="form-group">
+                                    <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Landmark (Optional)</label>
+                                    <input type="text" id="chk-addr-landmark" placeholder="e.g. Near Kalibari More">
+                                </div>
+                                <div class="form-group">
+                                    <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> City <span>*</span></label>
+                                    <input type="text" id="chk-addr-city" placeholder="Enter city" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row-split" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                                <div class="form-group">
+                                    <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> State <span>*</span></label>
+                                    <select id="chk-addr-state" required>
+                                        <option value="" disabled selected>Select state</option>
+                                        <option value="West Bengal">West Bengal</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Delhi">Delhi</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="maroon-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> PIN Code <span>*</span></label>
+                                    <input type="text" id="chk-addr-pin" placeholder="Enter PIN code" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer" style="margin-top: 2rem; display: flex; justify-content: flex-end; gap: 1rem; padding-top: 1.5rem;">
+                        <button type="button" class="btn-cancel" id="cancelFormBtn" style="padding: 0.75rem 1.5rem; background: transparent; border: 1px solid #d1d5db; border-radius: 6px; cursor: pointer; font-weight: 600;">Cancel</button>
+                        <button type="submit" class="btn-save" style="padding: 0.75rem 2rem; background: #3A100E; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Save & Select</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Injection -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Core Scripts -->
+    <script src="/js/core/components.js"></script>
+    <script src="/js/core/layout.js"></script>
+    <script src="/js/core/router.js"></script>
+    <script src="/js/pages/checkout.js"></script>
+</body>
+</html>

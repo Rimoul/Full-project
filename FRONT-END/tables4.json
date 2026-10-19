@@ -1,0 +1,659 @@
+{
+  "users": [
+    {
+      "user_id": "U1001",
+      "first_name": "Ritankar",
+      "last_name": "Saha",
+      "email": "ritankar.saha@example.com",
+      "phone_number": "+91 98765 43210",
+      "is_active": true,
+      "created_at": "2025-01-15T10:30:00Z",
+      "updated_at": null,
+      "deleted_at": null
+    }
+  ],
+  "addresses": [
+    {
+      "address_id": "A1001",
+      "user_id": "U1001",
+      "address_type": "Home",
+      "label": "My House",
+      "recipient_name": "Ritankar Saha",
+      "phone_number": "+91 98765 43210",
+      "address_line": "House No. 12, Lake View Road, Near Kalibari More, Roypur",
+      "landmark": "Near Kalibari More",
+      "city": "Maheshtala",
+      "state": "West Bengal",
+      "pin_code": "700141",
+      "country": "India",
+      "latitude": null,
+      "longitude": null,
+      "is_default": true,
+      "created_at": "2025-01-15T10:35:00Z",
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "address_id": "A1002",
+      "user_id": "U1001",
+      "address_type": "Office",
+      "label": "Office",
+      "recipient_name": "Ritankar Saha",
+      "phone_number": "+91 98765 43210",
+      "address_line": "6th Floor, Tech Park Building, Sector V",
+      "landmark": "Salt Lake",
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "pin_code": "700091",
+      "country": "India",
+      "latitude": null,
+      "longitude": null,
+      "is_default": false,
+      "created_at": "2025-02-10T09:00:00Z",
+      "updated_at": null,
+      "deleted_at": null
+    }
+  ],
+  "categories": [
+    {
+      "category_id": "CAT1001",
+      "name": "Festive Special",
+      "slug": "festive-special",
+      "description": "Sweets and treats for seasonal celebrations.",
+      "is_active": true,
+      "sort_order": 1,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": null
+    },
+    {
+      "category_id": "CAT1002",
+      "name": "Traditional Sweet",
+      "slug": "traditional-sweet",
+      "description": "Traditional sweets and regional favourites.",
+      "is_active": true,
+      "sort_order": 2,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": null
+    },
+    {
+      "category_id": "CAT1003",
+      "name": "Seasonal",
+      "slug": "seasonal",
+      "description": "Sweets available during selected seasons and festivals.",
+      "is_active": true,
+      "sort_order": 3,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": null
+    },
+    {
+      "category_id": "CAT1004",
+      "name": "Bengali Classic",
+      "slug": "bengali-classic",
+      "description": "Classic Bengali sweets and delicacies.",
+      "is_active": true,
+      "sort_order": 4,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": null
+    },
+    {
+      "category_id": "CAT1005",
+      "name": "Snacks",
+      "slug": "snacks",
+      "description": "Traditional savoury snacks.",
+      "is_active": true,
+      "sort_order": 5,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": null
+    },
+    {
+      "category_id": "CAT1006",
+      "name": "Gifting",
+      "slug": "gifting",
+      "description": "Sweets and assortments suitable for gifting.",
+      "is_active": true,
+      "sort_order": 6,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": null
+    }
+  ],
+  "product_categories": [
+    {
+      "product_id": "P1001",
+      "category_id": "CAT1001"
+    },
+    {
+      "product_id": "P1002",
+      "category_id": "CAT1002"
+    },
+    {
+      "product_id": "P1003",
+      "category_id": "CAT1004"
+    },
+    {
+      "product_id": "P1004",
+      "category_id": "CAT1002"
+    }
+  ],
+  "products": [
+    {
+      "product_id": "P1001",
+      "name": "Poush Parbon Special Patisapta",
+      "slug": "poush-parbon-special-patisapta",
+      "short_description": "Soft, delicate, and filled with sweet nostalgia.",
+      "long_description": "A timeless festive favourite, prepared with a delicate outer layer and a sweet traditional filling. Perfect for celebrating Poush Parbon with family.",
+      "is_active": true,
+      "added_at": "2025-01-01T10:00:00Z",
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "product_id": "P1002",
+      "name": "Mysore Pak",
+      "slug": "mysore-pak",
+      "short_description": "Rich, buttery and melt-in-the-mouth.",
+      "long_description": "Mysore Pak is a timeless South Indian delicacy, cherished for its rich taste, soft texture and melt-in-the-mouth goodness. Made with besan, ghee and sugar, it is a royal treat for special occasions.",
+      "is_active": true,
+      "added_at": "2025-01-02T10:00:00Z",
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "product_id": "P1003",
+      "name": "Narkel Naru",
+      "slug": "narkel-naru",
+      "short_description": "Fresh coconut, pure taste.",
+      "long_description": "A classic Bengali delight made with coconut and sweetness, often enjoyed during festivals and family gatherings.",
+      "is_active": true,
+      "added_at": "2025-01-03T10:00:00Z",
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "product_id": "P1004",
+      "name": "Moong Dal Ladoo",
+      "slug": "moong-dal-ladoo",
+      "short_description": "Rich, aromatic and full of traditional flavour.",
+      "long_description": "Traditional moong dal ladoos made for celebrations and special occasions.",
+      "is_active": true,
+      "added_at": "2025-01-04T10:00:00Z",
+      "updated_at": null,
+      "deleted_at": null
+    }
+  ],
+  "product_variants": [
+    {
+      "variant_id": "V1001",
+      "product_id": "P1001",
+      "weight_value": 250,
+      "weight_unit": "g",
+      "selling_price": 220.0,
+      "original_price": 250.0,
+      "stock_quantity": 50,
+      "sku": "PAT-250G",
+      "is_active": true,
+      "created_at": "2025-01-01T10:00:00Z",
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "variant_id": "V1002",
+      "product_id": "P1002",
+      "weight_value": 250,
+      "weight_unit": "g",
+      "selling_price": 280.0,
+      "original_price": 350.0,
+      "stock_quantity": 25,
+      "sku": "MYP-250G",
+      "is_active": true,
+      "created_at": "2025-01-02T10:00:00Z",
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "variant_id": "V1003",
+      "product_id": "P1002",
+      "weight_value": 500,
+      "weight_unit": "g",
+      "selling_price": 520.0,
+      "original_price": 600.0,
+      "stock_quantity": 15,
+      "sku": "MYP-500G",
+      "is_active": true,
+      "created_at": "2025-01-02T10:05:00Z",
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "variant_id": "V1004",
+      "product_id": "P1003",
+      "weight_value": 200,
+      "weight_unit": "g",
+      "selling_price": 180.0,
+      "original_price": 200.0,
+      "stock_quantity": 40,
+      "sku": "NAR-200G",
+      "is_active": true,
+      "created_at": "2025-01-03T10:00:00Z",
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "variant_id": "V1005",
+      "product_id": "P1004",
+      "weight_value": 250,
+      "weight_unit": "g",
+      "selling_price": 260.0,
+      "original_price": 300.0,
+      "stock_quantity": 50,
+      "sku": "MDL-250G",
+      "is_active": true,
+      "created_at": "2025-01-04T10:00:00Z",
+      "updated_at": null,
+      "deleted_at": null
+    }
+  ],
+  "product_media": [
+    {
+      "media_id": "M1001",
+      "product_id": "P1001",
+      "media_type": "image",
+      "media_url": "/media/patisapta.png",
+      "thumbnail_url": null,
+      "alt_text": "Poush Parbon Special Patisapta",
+      "sort_order": 0,
+      "is_primary": true,
+      "created_at": "2025-01-01T10:00:00Z",
+      "updated_at": null
+    },
+    {
+      "media_id": "M1002",
+      "product_id": "P1002",
+      "media_type": "image",
+      "media_url": "/media/mysore_pak.png",
+      "thumbnail_url": null,
+      "alt_text": "Mysore Pak sweets",
+      "sort_order": 0,
+      "is_primary": true,
+      "created_at": "2025-01-02T10:00:00Z",
+      "updated_at": null
+    },
+    {
+      "media_id": "M1003",
+      "product_id": "P1002",
+      "media_type": "image",
+      "media_url": "/media/mysore_pak_detail_2.png",
+      "thumbnail_url": null,
+      "alt_text": "Close-up of Mysore Pak",
+      "sort_order": 1,
+      "is_primary": false,
+      "created_at": "2025-01-02T10:01:00Z",
+      "updated_at": null
+    },
+    {
+      "media_id": "M1004",
+      "product_id": "P1002",
+      "media_type": "video",
+      "media_url": "/media/mysore_pak_video.mp4",
+      "thumbnail_url": "/media/mysore_pak_video_thumb.jpg",
+      "alt_text": "Mysore Pak product video",
+      "sort_order": 2,
+      "is_primary": false,
+      "created_at": "2025-01-02T10:02:00Z",
+      "updated_at": null
+    },
+    {
+      "media_id": "M1005",
+      "product_id": "P1003",
+      "media_type": "image",
+      "media_url": "/media/narkel_naru.png",
+      "thumbnail_url": null,
+      "alt_text": "Narkel Naru coconut sweets",
+      "sort_order": 0,
+      "is_primary": true,
+      "created_at": "2025-01-03T10:00:00Z",
+      "updated_at": null
+    },
+    {
+      "media_id": "M1006",
+      "product_id": "P1004",
+      "media_type": "image",
+      "media_url": "/media/moong_dal_ladoo.png",
+      "thumbnail_url": null,
+      "alt_text": "Moong Dal Ladoo",
+      "sort_order": 0,
+      "is_primary": true,
+      "created_at": "2025-01-04T10:00:00Z",
+      "updated_at": null
+    }
+  ],
+  "product_highlights": [
+    {
+      "highlight_id": "H1001",
+      "product_id": "P1002",
+      "highlight_text": "Made with pure ghee",
+      "sort_order": 0,
+      "is_active": true,
+      "created_at": "2025-01-02T10:00:00Z",
+      "updated_at": null
+    },
+    {
+      "highlight_id": "H1002",
+      "product_id": "P1002",
+      "highlight_text": "No artificial colours or preservatives",
+      "sort_order": 1,
+      "is_active": true,
+      "created_at": "2025-01-02T10:00:00Z",
+      "updated_at": null
+    },
+    {
+      "highlight_id": "H1003",
+      "product_id": "P1002",
+      "highlight_text": "Authentic traditional recipe",
+      "sort_order": 2,
+      "is_active": true,
+      "created_at": "2025-01-02T10:00:00Z",
+      "updated_at": null
+    },
+    {
+      "highlight_id": "H1004",
+      "product_id": "P1002",
+      "highlight_text": "Freshly prepared in small batches",
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2025-01-02T10:00:00Z",
+      "updated_at": null
+    }
+  ],
+  "product_ingredients": [
+    {
+      "ingredient_id": "ING1001",
+      "product_id": "P1002",
+      "ingredient_name": "Besan (Gram Flour)",
+      "sort_order": 0,
+      "is_active": true,
+      "created_at": "2025-01-02T10:00:00Z",
+      "updated_at": null
+    },
+    {
+      "ingredient_id": "ING1002",
+      "product_id": "P1002",
+      "ingredient_name": "Pure Ghee",
+      "sort_order": 1,
+      "is_active": true,
+      "created_at": "2025-01-02T10:00:00Z",
+      "updated_at": null
+    },
+    {
+      "ingredient_id": "ING1003",
+      "product_id": "P1002",
+      "ingredient_name": "Sugar",
+      "sort_order": 2,
+      "is_active": true,
+      "created_at": "2025-01-02T10:00:00Z",
+      "updated_at": null
+    },
+    {
+      "ingredient_id": "ING1004",
+      "product_id": "P1002",
+      "ingredient_name": "Cardamom",
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2025-01-02T10:00:00Z",
+      "updated_at": null
+    }
+  ],
+  "cart_items": [
+    {
+      "cart_item_id": "C1001",
+      "user_id": "U1001",
+      "variant_id": "V1004",
+      "quantity": 2,
+      "added_at": "2026-10-08T08:00:00Z",
+      "updated_at": null
+    }
+  ],
+  "wishlist_items": [
+    {
+      "wishlist_item_id": "W1001",
+      "user_id": "U1001",
+      "product_id": "P1002",
+      "added_at": "2026-10-08T08:05:00Z"
+    }
+  ],
+  "reviews": [
+    {
+      "review_id": "REV1001",
+      "product_id": "P1002",
+      "user_id": "U1001",
+      "order_item_id": null,
+      "rating": 5,
+      "review_text": "Absolutely delicious! Fresh, rich in taste and had the perfect texture.",
+      "is_verified_purchase": false,
+      "is_visible": true,
+      "created_at": "2026-09-12T10:00:00Z",
+      "updated_at": null
+    }
+  ],
+  "product_questions": [
+    {
+      "question_id": "Q1001",
+      "product_id": "P1002",
+      "user_id": "U1001",
+      "question_text": "Does this Mysore Pak contain pure ghee?",
+      "is_visible": true,
+      "created_at": "2026-09-15T10:00:00Z",
+      "updated_at": null
+    }
+  ],
+  "product_answers": [
+    {
+      "answer_id": "ANS1001",
+      "question_id": "Q1001",
+      "user_id": "U1001",
+      "answer_text": "Yes, this product is prepared with ghee. Please check the product label for the complete ingredient and allergen information.",
+      "is_official": false,
+      "is_visible": true,
+      "created_at": "2026-09-15T12:00:00Z",
+      "updated_at": null
+    }
+  ],
+  "orders": [
+    {
+      "order_id": "ORD1003",
+      "order_number": "SS1003",
+      "user_id": "U1001",
+      "shipping_name": "Ritankar Saha",
+      "shipping_phone": "+91 98765 43210",
+      "shipping_address_line": "House No. 12, Lake View Road, Near Kalibari More, Roypur",
+      "shipping_landmark": "Near Kalibari More",
+      "shipping_city": "Maheshtala",
+      "shipping_state": "West Bengal",
+      "shipping_pin_code": "700141",
+      "shipping_country": "India",
+      "subtotal": 260.0,
+      "discount_applied": 50.0,
+      "delivery_charge": 49.0,
+      "tax_amount": 0.0,
+      "total_amount": 259.0,
+      "currency": "INR",
+      "current_status": "Out_For_Delivery",
+      "payment_status": "Paid",
+      "expected_delivery": "2025-10-03",
+      "terms_accepted_at": "2025-10-01T18:23:30Z",
+      "accepted_terms_version": "v1.0",
+      "accepted_privacy_version": "v1.0",
+      "placed_at": "2025-10-01T18:24:00Z",
+      "updated_at": "2025-10-03T10:15:00Z",
+      "cancelled_at": null,
+      "delivered_at": null
+    }
+  ],
+  "order_items": [
+    {
+      "order_item_id": "OI1001",
+      "order_id": "ORD1003",
+      "product_id": "P1004",
+      "variant_id": "V1005",
+      "snapshot_name": "Moong Dal Ladoo",
+      "snapshot_weight": "250 g",
+      "snapshot_image": "/media/moong_dal_ladoo.png",
+      "snapshot_category": "Traditional Sweet",
+      "purchased_price": 260.0,
+      "original_price": 300.0,
+      "quantity": 1,
+      "discount_amount": 0.0,
+      "line_total": 260.0
+    }
+  ],
+  "order_tracking": [
+    {
+      "tracking_id": "T1001",
+      "order_id": "ORD1003",
+      "status_step": "Placed",
+      "description": "Your order has been placed successfully.",
+      "location": null,
+      "updated_by": "System",
+      "logged_at": "2025-10-01T18:24:00Z"
+    },
+    {
+      "tracking_id": "T1002",
+      "order_id": "ORD1003",
+      "status_step": "Packed",
+      "description": "Your order has been packed and is ready for shipment.",
+      "location": null,
+      "updated_by": "Admin",
+      "logged_at": "2025-10-02T09:10:00Z"
+    },
+    {
+      "tracking_id": "T1003",
+      "order_id": "ORD1003",
+      "status_step": "Shipped",
+      "description": "Your order has been shipped from our store.",
+      "location": null,
+      "updated_by": "Admin",
+      "logged_at": "2025-10-02T17:30:00Z"
+    },
+    {
+      "tracking_id": "T1004",
+      "order_id": "ORD1003",
+      "status_step": "Out_For_Delivery",
+      "description": "Your order is out for delivery and will reach you today.",
+      "location": null,
+      "updated_by": "Delivery Partner",
+      "logged_at": "2025-10-03T10:15:00Z"
+    }
+  ],
+  "payments": [
+    {
+      "payment_id": "PAY1001",
+      "order_id": "ORD1003",
+      "payment_method": "UPI",
+      "payment_provider": "Demo Payment Provider",
+      "payment_status": "Paid",
+      "amount": 259.0,
+      "currency": "INR",
+      "transaction_id": "DEMO-UPI-1234567890",
+      "gateway_order_id": null,
+      "gateway_payment_id": null,
+      "failure_reason": null,
+      "created_at": "2025-10-01T18:24:00Z",
+      "paid_at": "2025-10-01T18:24:30Z",
+      "updated_at": null
+    }
+  ],
+  "coupons": [
+    {
+      "coupon_id": "CP1001",
+      "code": "SWEET50",
+      "description": "Demo flat ₹50 discount",
+      "discount_type": "Fixed_Amount",
+      "discount_value": 50.0,
+      "minimum_order_amount": 250.0,
+      "maximum_discount": null,
+      "starts_at": "2025-01-01T00:00:00Z",
+      "expires_at": "2027-01-01T00:00:00Z",
+      "usage_limit": 1000,
+      "per_user_limit": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": null
+    }
+  ],
+  "coupon_usages": [
+    {
+      "coupon_usage_id": "CPU1001",
+      "coupon_id": "CP1001",
+      "user_id": "U1001",
+      "order_id": "ORD1003",
+      "discount_amount": 50.0,
+      "used_at": "2025-10-01T18:24:00Z"
+    }
+  ],
+  "order_cancellations": [],
+  "returns": [],
+  "return_items": [],
+  "refunds": [],
+  "shipments": [
+    {
+      "shipment_id": "SH1001",
+      "order_id": "ORD1003",
+      "logistics_provider": "Demo Logistics Partner",
+      "tracking_number": "DEMO-TRACK-1003",
+      "tracking_url": null,
+      "shipment_status": "Out_For_Delivery",
+      "shipped_at": "2025-10-02T17:30:00Z",
+      "delivered_at": null,
+      "created_at": "2025-10-02T17:30:00Z",
+      "updated_at": "2025-10-03T10:15:00Z"
+    }
+  ],
+  "invoices": [],
+  "store_policies": [
+    {
+      "policy_id": "POL1001",
+      "policy_type": "Cancellation",
+      "title": "Cancellation Policy",
+      "content": "Demo policy: cancellation eligibility depends on the current order status. Replace this text with your approved business policy.",
+      "version": "v1.0",
+      "is_active": true,
+      "updated_at": "2025-01-01T00:00:00Z"
+    },
+    {
+      "policy_id": "POL1002",
+      "policy_type": "Returns_Refunds",
+      "title": "Returns & Refunds",
+      "content": "Demo policy: publish your approved returns and refund terms before accepting real orders.",
+      "version": "v1.0",
+      "is_active": true,
+      "updated_at": "2025-01-01T00:00:00Z"
+    },
+    {
+      "policy_id": "POL1003",
+      "policy_type": "Shipping",
+      "title": "Shipping Policy",
+      "content": "Demo policy: replace with your actual shipping coverage, delivery estimates and charges.",
+      "version": "v1.0",
+      "is_active": true,
+      "updated_at": "2025-01-01T00:00:00Z"
+    },
+    {
+      "policy_id": "POL1004",
+      "policy_type": "Terms",
+      "title": "Terms & Conditions",
+      "content": "Demo policy: replace with your approved terms and conditions.",
+      "version": "v1.0",
+      "is_active": true,
+      "updated_at": "2025-01-01T00:00:00Z"
+    },
+    {
+      "policy_id": "POL1005",
+      "policy_type": "Privacy",
+      "title": "Privacy Policy",
+      "content": "Demo policy: replace with your approved privacy policy.",
+      "version": "v1.0",
+      "is_active": true,
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  ],
+  "admins": []
+}

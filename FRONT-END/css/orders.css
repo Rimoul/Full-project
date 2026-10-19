@@ -1,0 +1,396 @@
+
+
+/* /css/orders.css */
+
+.orders-page-wrapper {
+    background-color: #FDF9EE;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #2D2D2D;
+    min-height: 100vh;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================
+   TOP SECTION & HEADER
+   ============================ */
+.orders-top-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.title-block { margin-bottom: 30px; }
+.page-title {
+    font-family: 'Georgia', serif;
+    font-size: 2.8rem;
+    color: #5C1E1B;
+    margin: 0 0 5px 0;
+    font-weight: normal;
+}
+.title-divider svg { display: block; }
+.page-subtitle { color: #5C1E1B; font-size: 1.1rem; margin: 10px 0 0 0; }
+
+/* Controls (Search & Sort) */
+.orders-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #D0D0D0;
+    border-radius: 8px;
+    padding: 5px 5px 5px 15px;
+    flex: 1;
+    width: 100%; /* Ensures it stays within bounds */
+    max-width: 100%; /* Prevents it from breaking the container */
+    box-sizing: border-box;
+}
+
+.search-box svg { width: 20px; height: 20px; color: #8C8C8C; flex-shrink: 0; }
+
+.search-box input {
+    flex: 1; 
+    border: none; 
+    outline: none; 
+    padding: 10px; 
+    font-size: 0.95rem; 
+    background: transparent;
+    min-width: 0; /* CRITICAL: Allows the input to shrink smaller than the long placeholder text */
+}
+
+.btn-search {
+    background-color: #5C1E1B; color: white; border: none; border-radius: 6px;
+    padding: 10px 20px; font-weight: 500; cursor: pointer; transition: 0.3s;
+}
+.btn-search:hover { background-color: #3A100E; }
+
+.sort-box { display: flex; align-items: center; gap: 10px; color: #666; font-size: 0.95rem; }
+.sort-box select {
+    padding: 8px 15px; border: 1px solid #D0D0D0; border-radius: 6px; outline: none;
+    background: #FFFFFF; color: #5C1E1B; font-weight: 500; cursor: pointer;
+}
+
+/* Tabs */
+.orders-tabs {
+    display: flex;
+    gap: 30px;
+    border-bottom: 2px solid rgba(140, 43, 34, 0.1);
+    margin-bottom: 30px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.orders-tabs::-webkit-scrollbar { display: none; }
+.tab-btn {
+    background: transparent; border: none; padding: 10px 5px;
+    font-size: 1rem; color: #666; cursor: pointer; position: relative; white-space: nowrap;
+}
+.tab-btn:hover { color: #5C1E1B; }
+.tab-btn.active { color: #5C1E1B; font-weight: 600; }
+.tab-btn.active::after {
+    content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+    height: 3px; background-color: #5C1E1B; border-radius: 3px 3px 0 0;
+}
+
+/* ============================
+   MAIN LAYOUT (Grid)
+   ============================ */
+.orders-layout {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+    width: 100%;
+    display: grid;
+    /* Changed from 2fr 1fr to 2.8fr 1fr to make the sidebar much narrower */
+    grid-template-columns: 2.8fr 1fr; 
+    gap: 40px; /* Increased gap to give the two sections more breathing room */
+    align-items: start;
+}
+
+/* ============================
+   LEFT: ORDERS LIST
+   ============================ */
+.orders-list-section {
+    max-height: 850px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 25px; /* Increased to push the card away from the scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: #8C2B22 rgba(140, 43, 34, 0.1);
+}
+
+/* Chrome/Safari Support */
+.orders-list-section::-webkit-scrollbar { width: 8px; }
+.orders-list-section::-webkit-scrollbar-track { 
+    background: rgba(140, 43, 34, 0.1); 
+    border-radius: 10px; 
+    margin: 10px 0;
+}
+.orders-list-section::-webkit-scrollbar-thumb { 
+    background: #8C2B22; 
+    border-radius: 10px; 
+}
+
+.order-card {
+    background: #FFFDF7; 
+    border: 1px solid #D0BFA5; /* Darkened from transparent red to a solid, prominent beige/brown */
+    border-radius: 12px;
+    padding: 20px; 
+    margin-bottom: 20px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.order-card:last-child { margin-bottom: 0; }
+
+.card-header {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid rgba(140, 43, 34, 0.1); padding-bottom: 15px; margin-bottom: 15px;
+}
+.header-info { display: flex; gap: 20px; align-items: center; }
+.order-id { color: #8C2B22; font-size: 1.05rem; }
+.order-date { color: #8C8C8C; font-size: 0.9rem; }
+
+.status-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;
+}
+.status-badge svg { width: 16px; height: 16px; }
+.badge-green { background: #E8F5E9; color: #1B5E20; border: 1px solid #C8E6C9;}
+.badge-blue { background: #E3F2FD; color: #1565C0; border: 1px solid #BBDEFB;}
+
+.card-body {
+    display: flex; gap: 20px;
+}
+
+.product-snapshot { display: flex; gap: 15px; width: 220px; flex-shrink: 0; }
+.product-snapshot img { width: 80px; height: 80px; border-radius: 8px; object-fit: cover; }
+.snapshot-details { display: flex; flex-direction: column; gap: 4px; }
+.snapshot-details h3 { font-family: 'Georgia', serif; color: #5C1E1B; font-size: 1.1rem; margin: 0;}
+.snapshot-details span { color: #666; font-size: 0.85rem; }
+.snapshot-details .price { color: #2D2D2D; font-weight: 600; font-size: 1rem; }
+
+/* Tracking Timeline */
+.tracking-container { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 15px;}
+
+.timeline { 
+    display: flex; 
+    align-items: flex-start; 
+    width: 100%;
+}
+
+.timeline .step {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    gap: 8px;
+    position: relative; 
+    z-index: 2; 
+    width: 70px; /* Fixed width */
+    flex-shrink: 0; 
+}
+
+/* RESTORED: Strict sizing for the small circular icons */
+.timeline .icon {
+    width: 20px; 
+    height: 20px; 
+    min-width: 20px; /* Prevents flexbox from squishing it */
+    min-height: 20px;
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-size: 10px; 
+    font-weight: bold;
+}
+
+.timeline .step span { 
+    font-size: 0.75rem; 
+    color: #8C8C8C; 
+    line-height: 1.3; 
+    white-space: normal; /* Allows the date to sit nicely under the status */
+}
+
+
+
+/* Timeline States */
+.step.completed .icon { background: #2E7D32; color: white; border: 2px solid #2E7D32; }
+.step.completed span { color: #2D2D2D; font-weight: 500; }
+.step.current-blue .icon { background: #1565C0; color: white; border: 2px solid #1565C0; }
+.step.current-blue span { color: #2D2D2D; font-weight: 500; }
+.step.pending .icon { background: #FFF; border: 2px solid #D0D0D0; }
+
+/* Perfect vertical alignment for the line */
+.timeline .line { 
+    flex: 1; 
+    height: 2px; 
+    /* THE FIX: Pulls the line exactly 25px left and right to perfectly hit the 20px icons */
+    margin: 9px -25px 0 -25px; 
+    z-index: 1; 
+    min-width: 0;
+}
+
+.line.completed { background: #2E7D32; }
+.line.pending { background: #D0D0D0; }
+
+.delivery-estimate {
+    display: flex; align-items: center; gap: 8px; font-size: 0.9rem; justify-content: center;
+    white-space: nowrap; /* Forces "Expected Delivery..." to stay on exactly one line */
+}
+
+.delivery-estimate svg { width: 18px; height: 18px; }
+.text-green { color: #1B5E20; }
+.text-blue { color: #1565C0; }
+
+/* Actions Column */
+.card-actions {
+    display: flex; flex-direction: column; gap: 10px; width: 150px; flex-shrink: 0; justify-content: center;
+}
+.btn-filled, .btn-outline {
+    width: 100%; padding: 10px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 6px; transition: 0.3s;
+}
+.btn-filled { background: #5C1E1B; color: white; border: 1px solid #5C1E1B; }
+.btn-filled:hover { background: #3A100E; }
+.btn-filled svg { width: 16px; height: 16px; stroke: white;}
+.btn-outline { background: transparent; color: #5C1E1B; border: 1px solid #5C1E1B; }
+.btn-outline:hover { background: rgba(92, 30, 27, 0.05); }
+.btn-outline svg { width: 16px; height: 16px; }
+
+/* ============================
+   RIGHT: SIDEBAR WIDGETS
+   ============================ */
+.sidebar-widget {
+    background: #FFFDF7; border: 1px solid rgba(140, 43, 34, 0.1); border-radius: 12px;
+    padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.summary-widget h2 {
+    font-family: 'Georgia', serif; color: #5C1E1B; font-size: 1.2rem; margin: 0 0 20px 0;
+    display: flex; align-items: center; gap: 10px;
+}
+.summary-widget h2 svg { width: 20px; height: 20px; }
+.summary-list { list-style: none; padding: 0; margin: 0; }
+.summary-list li {
+    display: flex; justify-content: space-between; padding: 10px; border-radius: 6px;
+    color: #666; font-size: 0.95rem; margin-bottom: 5px;
+}
+.summary-list li.active { background: #FFF0F0; color: #C20A35; font-weight: 600; }
+.summary-list li strong { color: #2D2D2D; }
+.summary-list li.active strong { color: #C20A35; }
+
+.help-header, .upsell-header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+}
+.help-header svg, .upsell-header svg { width: 24px; height: 24px; }
+.help-header h3, .upsell-header h3 {
+    font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.1rem; margin: 0;
+}
+.sidebar-widget p { color: #666; font-size: 0.9rem; line-height: 1.5; margin: 0 0 15px 0; }
+.sidebar-widget .btn-outline { width: 100%; }
+
+.upsell-img { 
+    width: 100%; 
+    height: 120px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+    margin-bottom: 15px;
+    display: block; /* Prevents the button from hovering over the bottom edge */
+}
+
+.w-100 { 
+    width: 100%; 
+    box-sizing: border-box; /* Stops padding from forcing the button wider than the container */
+}
+
+/* ============================
+   SHARED BOTTOM BANNER
+   ============================ */
+.shared-bottom-wrapper { position: relative; width: 100%; margin-top: auto; }
+.shared-bottom-wrapper .wave-divider { line-height: 0; background-color: transparent; }
+.shared-bottom-wrapper .wave-divider svg { width: 100%; height: 60px; display: block; }
+.shared-bottom-banner { background-color: #3A100E; color: #FFFDF7; text-align: center; padding: 20px 20px 50px; }
+.shared-bottom-banner .banner-icon { width: 40px; height: 40px; margin-bottom: 15px; }
+.shared-bottom-banner h2 { font-family: 'Georgia', serif; font-size: 1.8rem; font-weight: 300; margin: 0 0 20px 0; line-height: 1.4; }
+.center-div { display: flex; justify-content: center; }
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+
+
+/* Tablet & Smaller Screens */
+@media (max-width: 991px) {
+    .orders-layout { 
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+        margin-bottom: 20px; /* Kills the huge extra space at the bottom */
+    }
+    
+    .orders-list-section { 
+        max-height: none !important; 
+        overflow-y: visible !important; 
+        padding-right: 0 !important;
+    }
+    
+    .card-body { flex-wrap: wrap; }
+    .product-snapshot { width: 100%; border-bottom: 1px solid rgba(140, 43, 34, 0.1); padding-bottom: 15px; }
+    .tracking-container { width: 100%; padding: 15px 0; border-bottom: 1px solid rgba(140, 43, 34, 0.1); }
+    .card-actions { width: 100%; flex-direction: row; padding-top: 15px; }
+}
+
+/* Mobile Phones specifically */
+@media (max-width: 600px) {
+    /* Add this inside your max-width: 600px media query */
+    .orders-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .sort-box {
+        justify-content: space-between;
+    }
+
+
+    .card-header { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 10px;
+    }
+    
+    /* THE TIMELINE FIX */
+    .timeline { 
+        overflow-x: auto; /* Allows users to swipe left/right to see the whole timeline */
+        justify-content: flex-start; /* Stops the first checkmark from being cut off on the left */
+        padding-bottom: 15px; /* Creates room for the scrollbar so it doesn't overlap text */
+        
+        /* Hides the ugly mobile scrollbar while still allowing swiping */
+        scrollbar-width: none; 
+    }
+    .timeline::-webkit-scrollbar { 
+        display: none; 
+    }
+    
+    .timeline .step {
+        flex-shrink: 0; /* Strictly prevents the text/icons from squishing */
+    }
+    
+    .timeline .line { 
+        min-width: 70px; /* Forces the line to stay wide enough to perfectly connect the icons */
+        flex-shrink: 0; /* Prevents the line from turning into a tiny dash */
+    }
+    
+    .card-actions { 
+        flex-direction: column; 
+    }
+}

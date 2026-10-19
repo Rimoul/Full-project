@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/header.css">
+
+</head>
+<body>
+    <header class="site-header" id="siteHeader">
+        <div class="header-main-bar">
+            <!-- Left: Hamburger / Close Toggle -->
+            <button class="menu-toggle-btn" id="menuToggle" aria-label="Toggle Menu">
+                <svg class="icon-hamburger" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <svg class="icon-close" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" style="display: none;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+    
+            <!-- Center-Left: Logo -->
+            <div class="header-logo">
+                <!-- index.html stays exactly the same -->
+                <a href="/index.html">
+                    <img src="/media/bussiness-header_logo2.png" alt="Seazonal Swaad">
+                </a>
+            </div>
+    
+            <!-- Center: Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="/pages/all-products.html">All Sweets</a></li>
+                    <li><a href="goat.html">Seasonal Sweets</a></li>
+                    <li><a href="#">Festive Specials</a></li>
+                    <li><a href="#">Bengali Classics</a></li>
+                    <li><a href="#">Gifting</a></li>
+                </ul>
+            </nav>
+    
+            <!-- Right: Action Icons -->
+            <div class="header-actions">
+                <!-- Search Button -->
+                <button class="action-icon" id="searchToggleBtn" aria-label="Search">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+                
+                <a href="/pages/log.html" class="action-icon profile-icon" aria-label="Account">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </a>
+                
+                <a href="/pages/cart.html" class="action-icon" aria-label="Cart">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                </a>
+            </div>
+        </div>
+    
+        <!-- Hidden Search Overlay -->
+        <div class="search-overlay" id="searchOverlay">
+            <div class="search-box-container">
+                <input type="text" placeholder="Search for sweets, spices, and more..." class="search-input-field" id="searchInput">
+                <button class="close-search-btn" id="closeSearchBtn" aria-label="Close Search">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    
+        <!-- Full Dropdown Menu Panel -->
+        <div class="header-dropdown-menu" id="dropdownMenu">
+            <div class="dropdown-content">
+                <ul class="menu-section">
+                    <!-- index.html stays exactly the same -->
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/pages/orders.html">Orders</a></li>
+                    <li><a href="/pages/manage-addresses.html">addresses</a></li>
+                </ul>
+                <ul class="menu-section">
+                    <li><a href="/pages/all-products.html">All Sweets</a></li>
+                    <li><a href="#">Seasonal Sweets</a></li>
+                    <li><a href="#">Festive Specials</a></li>
+                    <li><a href="#">Bengali Classics</a></li>
+                    <li><a href="#">Gifting</a></li>
+                </ul>
+                <ul class="menu-section">
+                    <li><a href="/pages/aboutUs.html">About Us</a></li>
+                    <li><a href="/pages/contactUs.html">Contact Us</a></li>
+                </ul>
+                <ul class="menu-section">
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+                <div class="menu-footer">
+                    <a href="/pages/log.html" class="login-link">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        Log In / Sign Up
+                    </a>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33zM9.75 15.02V8.4l6.37 3.32-6.37 3.3z"></path></svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <script src="/js/core/layout.js" defer></script>
+</body>
+</html>

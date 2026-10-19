@@ -1,0 +1,261 @@
+/* /css/order-details.css */
+
+/* Ultimate safety lock to prevent the whole page from sliding side-to-side */
+html, body {
+    overflow-x: hidden;
+}
+
+.order-details-wrapper {
+    background-color: #FDF9EE;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #2D2D2D;
+    min-height: 100vh;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.order-details-wrapper * {
+    box-sizing: border-box; /* Crucial for preventing width blowouts */
+}
+
+/* ============================
+   TOP SECTION
+   ============================ */
+.page-top-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.title-block { margin-bottom: 30px; }
+.page-title {
+    font-family: 'Georgia', serif;
+    font-size: 2.8rem;
+    color: #5C1E1B;
+    margin: 0 0 5px 0;
+    font-weight: normal;
+}
+.title-divider svg { display: block; }
+.page-subtitle { color: #5C1E1B; font-size: 1.05rem; margin: 10px 0 0 0; }
+
+/* ============================
+   MAIN LAYOUT GRID
+   ============================ */
+.details-layout {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2.4fr 1fr; /* Matches the visual weight of the left column */
+    gap: 30px;
+    align-items: start;
+}
+
+.left-column { display: flex; flex-direction: column; gap: 20px; }
+.right-column { display: flex; flex-direction: column; gap: 20px; }
+
+/* ============================
+   LEFT COLUMN COMPONENTS
+   ============================ */
+/* Shared Card Styling */
+.detail-card {
+    background: #FFFDF7; 
+    border: 1px solid #D0BFA5; /* The beige/gold border color from the image */
+    border-radius: 12px;
+    padding: 25px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+/* Card Headers */
+.card-head {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid rgba(140, 43, 34, 0.1);
+    padding-bottom: 12px; margin-bottom: 15px;
+}
+.card-head h3 {
+    font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.15rem; margin: 0;
+    display: flex; align-items: center; gap: 10px;
+}
+.card-head h3 svg { width: 22px; height: 22px; }
+
+/* Main Header Card */
+.header-split {
+    display: flex; justify-content: space-between; align-items: flex-start;
+}
+.order-id-title {
+    font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.5rem; margin: 0 0 5px;
+    display: flex; align-items: center; gap: 10px;
+}
+.order-id-title svg { width: 24px; height: 24px; }
+.btn-copy { background: transparent; border: none; color: #8C2B22; cursor: pointer; padding: 0; margin-top: 4px; transition: 0.2s;}
+.btn-copy:hover { color: #5C1E1B; }
+.btn-copy svg { width: 18px; height: 18px; }
+.order-date { color: #666; font-size: 0.95rem; margin: 0; }
+
+.status-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: 600;
+}
+.status-badge svg { width: 16px; height: 16px; }
+.badge-green { background: #E8F5E9; color: #1B5E20; border: 1px solid #C8E6C9;}
+
+/* Alert Box */
+.status-alert {
+    display: flex; align-items: flex-start; gap: 15px;
+    background: #E8F5E9; border-radius: 8px; padding: 20px; margin-top: 25px;
+}
+.alert-icon { color: #1B5E20; margin-top: 2px;}
+.alert-icon svg { width: 32px; height: 32px; }
+.alert-content h4 { color: #2E7D32; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin: 0 0 5px; letter-spacing: 0.5px;}
+.alert-content h3 { color: #1B5E20; font-family: 'Georgia', serif; font-size: 1.25rem; margin: 0 0 5px; font-weight: normal;}
+.alert-content p { color: #4CAF50; font-size: 0.95rem; margin: 0; }
+
+/* Info Grid (Address & Payment) */
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.btn-text {
+    background: transparent; border: none; color: #C20A35; font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; display: flex; align-items: center; gap: 4px; transition: 0.2s;
+}
+.btn-text:hover { color: #8C2B22; }
+.btn-text svg { width: 14px; height: 14px; }
+
+.info-card .name { font-family: 'Georgia', serif; color: #5C1E1B; font-size: 1.1rem; margin: 0 0 8px; }
+.info-card .address-text { color: #666; font-size: 0.95rem; line-height: 1.5; margin: 0 0 12px; }
+.info-card .phone-text { display: flex; align-items: center; gap: 8px; color: #666; font-size: 0.95rem; font-weight: 500; margin: 0;}
+.info-card .phone-text svg { width: 16px; height: 16px; color: #8C2B22;}
+
+.payment-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;}
+.payment-list li { display: flex; justify-content: space-between; font-size: 0.95rem; align-items: center;}
+.payment-list li span { color: #666; }
+.payment-list li strong { color: #2D2D2D; display: flex; align-items: center; gap: 6px; text-align: right;}
+.upi-logo { font-style: italic; font-weight: 800; color: #1565C0; font-family: sans-serif;}
+.text-green { color: #1B5E20 !important; }
+.text-green svg { width: 16px; height: 16px; }
+
+/* Order Items */
+.item-row { display: flex; gap: 20px; align-items: center;}
+.item-row img { width: 90px; height: 90px; border-radius: 8px; object-fit: cover; }
+.item-details { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.title-bar { display: flex; align-items: center; gap: 15px; flex-wrap: wrap;}
+.title-bar h4 { font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.15rem; margin: 0; }
+.tag { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+.tag-traditional { background: #F3E5D8; color: #A05C33; }
+.item-details .weight { color: #666; font-size: 0.9rem; }
+.item-details .desc { color: #8C8C8C; font-size: 0.9rem; margin: 0; }
+
+/* Price Details */
+.price-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 15px; border-bottom: 1px solid rgba(140, 43, 34, 0.1); padding-bottom: 15px;}
+.price-row { display: flex; justify-content: space-between; font-size: 0.95rem; }
+.price-row span { color: #666; }
+.price-row strong { color: #2D2D2D; }
+.price-total { display: flex; justify-content: space-between; align-items: center; }
+.price-total span { font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.2rem; font-weight: bold;}
+.price-total strong { font-size: 1.3rem; color: #8C2B22; }
+
+/* ============================
+   RIGHT COLUMN COMPONENTS
+   ============================ */
+.sidebar-widget {
+    background: #FFFDF7; 
+    border: 1px solid #D0BFA5; 
+    border-radius: 12px;
+    padding: 20px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+/* Product Snapshot */
+.snapshot-widget { display: flex; gap: 15px; align-items: center; }
+.snapshot-widget img { width: 70px; height: 70px; border-radius: 6px; object-fit: cover; }
+.snapshot-info { display: flex; flex-direction: column; gap: 3px; }
+.snapshot-info h4 { font-family: 'Georgia', serif; color: #8C2B22; font-size: 1rem; margin: 0; }
+.snapshot-info .weight, .snapshot-info .qty { color: #8C8C8C; font-size: 0.8rem; }
+.snapshot-info .price { color: #2D2D2D; font-size: 1rem; }
+
+/* Actions */
+.actions-widget { display: flex; flex-direction: column; gap: 15px; }
+.action-group { display: flex; flex-direction: column; gap: 5px; }
+.helper-text { text-align: center; color: #8C8C8C; font-size: 0.75rem; margin: 0; }
+
+.btn-action {
+    width: 100%; padding: 12px; border-radius: 6px; font-size: 0.95rem; font-weight: 500;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+    transition: 0.3s;
+}
+.btn-action svg { width: 18px; height: 18px; }
+
+.btn-filled { background: #5C1E1B; color: white; border: 1px solid #5C1E1B; }
+.btn-filled:hover { background: #3A100E; }
+
+.btn-outline { background: transparent; color: #8C2B22; border: 1px solid #D0BFA5; }
+.btn-outline:hover:not(.disabled) { background: rgba(140, 43, 34, 0.05); border-color: #8C2B22;}
+
+.btn-outline-danger { background: transparent; color: #C20A35; border: 1px solid #D0BFA5; }
+.btn-outline-danger:hover { background: #FFF0F0; border-color: #C20A35; }
+
+.btn-action.disabled { color: #A0A0A0; border-color: #E0E0E0; cursor: not-allowed; }
+
+/* Policies */
+.policies-widget h3 {
+    font-family: 'Georgia', serif; color: #8C2B22; font-size: 1.15rem; margin: 0 0 15px 0;
+    display: flex; align-items: center; gap: 10px;
+}
+.policies-widget h3 svg { width: 22px; height: 22px; }
+.policy-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
+.policy-links li { border-bottom: 1px solid rgba(140, 43, 34, 0.05); }
+.policy-links li:last-child { border-bottom: none; }
+.policy-links a {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 0; color: #666; text-decoration: none; font-size: 0.9rem; transition: 0.2s;
+}
+.policy-links a:hover { color: #8C2B22; }
+.policy-links a svg { width: 16px; height: 16px; color: #C20A35; }
+
+
+/* ============================
+   SHARED BOTTOM BANNER
+   ============================ */
+.shared-bottom-wrapper { position: relative; width: 100%; margin-top: auto; }
+.shared-bottom-wrapper .wave-divider { line-height: 0; background-color: transparent; }
+.shared-bottom-wrapper .wave-divider svg { width: 100%; height: 60px; display: block; }
+.shared-bottom-banner { background-color: #3A100E; color: #FFFDF7; text-align: center; padding: 20px 20px 50px; }
+.shared-bottom-banner .banner-icon { width: 40px; height: 40px; margin-bottom: 15px; }
+.shared-bottom-banner h2 { font-family: 'Georgia', serif; font-size: 1.8rem; font-weight: 300; margin: 0 0 20px 0; line-height: 1.4; }
+.center-div { display: flex; justify-content: center; }
+
+
+/* ============================
+   RESPONSIVE (Mobile Cleanup)
+   ============================ */
+@media (max-width: 991px) {
+    .details-layout { 
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+        margin-bottom: 0 !important; 
+    }
+    
+    .header-split { flex-direction: column; gap: 15px; }
+    
+    .right-column {
+        /* On tablet/mobile, we can display the actions and policies in a 2-col grid */
+        display: grid; 
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .snapshot-widget { grid-column: span 2; } /* Snapshot spans full width */
+
+    .shared-bottom-wrapper {
+        margin-top: 40px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .info-grid { grid-template-columns: 1fr; } /* Stack Address and Payment */
+    .right-column { display: flex; flex-direction: column; } /* Stack Sidebar fully */
+    .payment-list li { flex-direction: column; align-items: flex-start; gap: 5px; margin-bottom: 10px; border-bottom: 1px dashed #E0E0E0; padding-bottom: 10px;}
+    .payment-list li strong { width: 100%; text-align: left;}
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#180b0a">
+  <title>Login | Seasonal Swaad</title>
+  <link rel="preload" as="image" href="/media/login-background.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/login-page.css">
+</head>
+<body class="ss-login-body">
+<main class="ss-login-screen">
+  <img class="ss-login-background-image" src="/media/login-background.jpg" alt="" fetchpriority="high" decoding="sync">
+  <section class="ss-login-login-card" aria-labelledby="ssLoginHeading">
+    <div class="ss-login-brand"><div class="ss-login-brand-name">Seasonal<span>Swaad</span></div><span class="ss-login-leaf" aria-hidden="true">❧</span></div>
+    <div class="ss-login-ornament" aria-hidden="true"><i></i><b>◆</b><i></i></div>
+    <h1 id="ssLoginHeading">Login</h1>
+    <p class="ss-login-subtitle" id="ssLoginSubtitle">Welcome back! Login to continue to Seasonal Swaad.</p>
+
+    <form id="ssLoginLoginform" class="ss-login-view" data-ss-login-view="login" novalidate>
+      <label class="ss-login-field"><span class="ss-login-sr-only">Email address</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+        <input id="ssLoginIdentifier" name="identifier" type="email" placeholder="Email address" autocomplete="username" required>
+      </label>
+      <label class="ss-login-field"><span class="ss-login-sr-only">Password</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg>
+        <input id="ssLoginPassword" name="password" type="password" placeholder="Password" autocomplete="current-password" required>
+        <button class="ss-login-show-password" id="ssLoginShowpassword" type="button" aria-label="Show password" aria-pressed="false">
+          <svg class="ss-login-eye-closed" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/><path d="m3 3 18 18"/></svg>
+        </button>
+      </label>
+      <div class="ss-login-options"><span class="ss-login-options-spacer" aria-hidden="true"></span><a href="#forgot-password" id="ssLoginForgotlink">Forgot password?</a></div>
+      <button class="ss-login-login-button" type="submit">Login <span aria-hidden="true">→</span></button>
+      <p class="ss-login-message" id="ssLoginMessage" aria-live="polite"></p>
+    </form>
+
+    <form id="ssLoginSignupform" class="ss-login-view" data-ss-login-view="signup" hidden novalidate>
+      <label class="ss-login-field"><span class="ss-login-sr-only">Full name</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><input id="ssLoginFullname" name="fullName" type="text" placeholder="Full name" autocomplete="name" required></label>
+      <label class="ss-login-field"><span class="ss-login-sr-only">Email address</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><input id="ssLoginSignupIdentifier" name="identifier" type="email" placeholder="Email address" autocomplete="email" required></label>
+      <label class="ss-login-field"><span class="ss-login-sr-only">Create password</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg><input id="ssLoginSignupPassword" name="password" type="password" placeholder="Create password" autocomplete="new-password" minlength="8" required></label>
+      <label class="ss-login-field"><span class="ss-login-sr-only">Confirm password</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg><input id="ssLoginSignupConfirmPassword" name="confirmPassword" type="password" placeholder="Confirm password" autocomplete="new-password" minlength="8" required></label>
+      <button class="ss-login-login-button" type="submit">Create account <span aria-hidden="true">→</span></button>
+      <p class="ss-login-message" id="ssLoginSignupMessage" aria-live="polite"></p>
+    </form>
+
+    <form id="ssLoginVerifyform" class="ss-login-view" data-ss-login-view="verify" hidden novalidate>
+      <p class="ss-login-subtitle" id="ssLoginVerifyEmailSummary">Enter the 6-digit code sent to your email address.</p>
+      <label class="ss-login-field"><span class="ss-login-sr-only">Email verification code</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><input id="ssLoginVerificationCode" name="otp_code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" placeholder="6-digit verification code" required></label>
+      <button class="ss-login-login-button" type="submit">Verify email <span aria-hidden="true">→</span></button>
+      <button class="ss-login-secondary-button" id="ssLoginResendverify" type="button">Resend verification code <span id="ssLoginResendTimer" hidden></span></button>
+      <p class="ss-login-message" id="ssLoginVerifyMessage" aria-live="polite"></p>
+    </form>
+
+    <form id="ssLoginResetform" class="ss-login-view" data-ss-login-view="reset" hidden novalidate>
+      <label class="ss-login-field"><span class="ss-login-sr-only">New password</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg><input id="ssLoginResetPassword" name="new_password" type="password" placeholder="New password" autocomplete="new-password" minlength="8" required></label>
+      <label class="ss-login-field"><span class="ss-login-sr-only">Confirm new password</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg><input id="ssLoginResetConfirmPassword" name="confirm_password" type="password" placeholder="Confirm new password" autocomplete="new-password" minlength="8" required></label>
+      <button class="ss-login-login-button" type="submit">Update password <span aria-hidden="true">→</span></button>
+      <p class="ss-login-message" id="ssLoginResetMessage" aria-live="polite"></p>
+    </form>
+
+    <form id="ssLoginForgotform" class="ss-login-view" data-ss-login-view="forgot" hidden novalidate>
+      <label class="ss-login-field"><span class="ss-login-sr-only">Email address</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><input id="ssLoginRecoveryIdentifier" name="identifier" type="email" placeholder="Email address" autocomplete="email" required></label>
+      <button class="ss-login-login-button" type="submit">Send reset link <span aria-hidden="true">→</span></button>
+      <p class="ss-login-message" id="ssLoginForgotMessage" aria-live="polite"></p>
+    </form>
+
+    <div class="ss-login-login-extras" id="ssLoginLoginExtras">
+      <div class="ss-login-or"><i></i><span>OR</span><i></i></div>
+      <div class="ss-login-socials">
+        <button type="button" class="ss-login-social" data-ss-login-provider="Google" aria-label="Continue with Google" title="Continue with Google"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11a9.4 9.4 0 0 1-4.1 6.2v5.1h6.6c3.9-3.6 6.1-8.8 6.1-15Z"/><path fill="#34A853" d="M24 44c5.5 0 10.1-1.8 13.5-4.9l-6.6-5.1c-1.8 1.2-4 2-6.9 2-5.3 0-9.8-3.6-11.4-8.4H5.8v5.3A20 20 0 0 0 24 44Z"/><path fill="#FBBC05" d="M12.6 27.6a12 12 0 0 1 0-7.2v-5.3H5.8a20 20 0 0 0 0 17.8l6.8-5.3Z"/><path fill="#EA4335" d="M24 12c3 0 5.7 1 7.8 3.1l5.8-5.8C34.1 5.9 29.5 4 24 4A20 20 0 0 0 5.8 15.1l6.8 5.3C14.2 15.6 18.7 12 24 12Z"/></svg></button>
+        <button type="button" class="ss-login-social ss-login-apple" data-ss-login-provider="Apple" aria-label="Continue with Apple" title="Continue with Apple"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.8c0-2.2 1.8-3.3 1.9-3.4a4.2 4.2 0 0 0-3.3-1.8c-1.4-.1-2.8.8-3.5.8-.7 0-1.8-.8-3-.8a4.5 4.5 0 0 0-3.8 2.3c-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.3 2.9 2.2 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.3a10 10 0 0 0 1.3-2.6 4 4 0 0 1-2.5-3.7ZM14.1 6.1a4.1 4.1 0 0 0 1-3 4.2 4.2 0 0 0-2.8 1.4 3.8 3.8 0 0 0-1 2.9 3.5 3.5 0 0 0 2.8-1.3Z"/></svg></button>
+        <button type="button" class="ss-login-social ss-login-x-social" data-ss-login-provider="X" aria-label="Continue with X" title="Continue with X"><span>𝕏</span></button>
+      </div>
+    </div>
+    <p class="ss-login-signup" id="ssLoginFooterText">Don't have an account? <a href="#signup" id="ssLoginSignuplink">Sign Up</a></p>
+  </section>
+</main>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="/js/core/auth-client.js"></script>
+<script src="/js/pages/login-page.js"></script>
+</body>
+</html>

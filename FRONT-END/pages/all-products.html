@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - Seazonal Swaad</title>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/all-products.css">
+</head>
+<body>
+
+    <!-- Header Injection -->
+    <div id="header-placeholder"></div>
+    
+    <main class="products-page-wrapper">
+        
+        <!-- TOP FILTER & SORT BAR -->
+        <section class="products-top-bar">
+            <div class="filter-pills">
+                <button class="filter-pill active">All Products</button>
+                <button class="filter-pill">Festive Specials</button>
+                <button class="filter-pill">Traditional Sweets</button>
+                <button class="filter-pill">Snacks</button>
+                <button class="filter-pill">Seasonal</button>
+            </div>
+            <div class="sort-dropdown-container">
+                <select class="sort-dropdown">
+                    <option value="featured">Sort by: Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest Arrivals</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- PRODUCT GRID (EMPTY FOR JS INJECTION) -->
+        <!-- PRODUCT GRID -->
+                <section class="product-grid" id="product-grid" style="min-height: 50vh;">
+                    <!-- Default Empty State -->
+                    <div id="empty-state-message" style="grid-column: 1 / -1; display: flex; justify-content: center; align-items: center; height: 100%; color: #9ca3af; font-size: 1.1rem; text-align: center;">
+                        There are no products available at the moment.
+                    </div>
+                </section>
+
+        <!-- PRODUCTS BOTTOM BANNER WITH WAVE -->
+        <div class="products-bottom-wrapper">
+            <div class="wave-divider">
+                <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="#3A100E"></path></svg>
+            </div>
+            <section class="products-bottom-banner">
+                <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.5"><path d="M12 2c0 0-4 4-4 10s4 10 4 10 4-4 4-10-4-10-4-10z"></path></svg>
+                <h2>Bringing the taste of tradition<br>closer to you.</h2>
+                <div class="hero-divider center-div"><svg viewBox="0 0 150 10" width="150" height="10"><line x1="0" y1="5" x2="150" y2="5" stroke="#C5A880" stroke-width="1"></line><circle cx="75" cy="5" r="3" fill="#C5A880"></circle></svg></div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Footer Injection -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Core Scripts -->
+    <script src="/js/core/components.js"></script>
+    <script src="/js/core/layout.js"></script>
+    <script src="/js/core/router.js"></script>
+    
+    <!-- Product Logic Script -->
+    <script src="/js/pages/all-products.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+.ss-login-body{margin:0;width:100%;height:100vh;height:100dvh;min-height:0;overflow:hidden;background:#160b0a}
+.ss-login-screen{--ss-login-bg:#160b0a;--ss-login-orange:#f26012;--ss-login-gold:#c98a35;--ss-login-text:#fff7ef;--ss-login-muted:#c4b5ad;--ss-login-line:rgba(226,194,173,.22)}
+.ss-login-screen, .ss-login-screen *{box-sizing:border-box}
+.ss-login-screen{width:100%;height:100vh;height:100dvh;margin:0}
+.ss-login-screen{font-family:'DM Sans',sans-serif;color:var(--ss-login-text);background:#160b0a}
+.ss-login-screen button,.ss-login-screen input{font:inherit}
+.ss-login-screen button,.ss-login-screen a{-webkit-tap-highlight-color:transparent}
+.ss-login-screen{position:relative;isolation:isolate;display:grid;place-items:center;width:100%;height:100vh;height:100dvh;min-height:0;overflow:hidden;padding:28px;background:#160b0a;opacity:0;transition:opacity .01s linear}.ss-login-screen.ss-login-background-ready{opacity:1}.ss-login-background-image{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:fill;object-position:center;display:block}
+
+.ss-login-login-card{position:relative;z-index:1;width:min(598px,100%);max-height:calc(100dvh - 56px);overflow:visible;padding:49px 48px 40px;border:1px solid rgba(153,79,53,.46);border-radius:22px;background:linear-gradient(145deg,rgba(35,20,17,.97),rgba(22,13,12,.97));box-shadow:0 24px 80px #0006,inset 0 1px #ffffff09,0 0 42px #86311812;scrollbar-width:thin;scrollbar-color:#9d633d transparent}
+.ss-login-brand{display:flex;justify-content:center;align-items:center;gap:5px;color:#fff4e8}
+.ss-login-brand-name{font-family:'Playfair Display',Georgia,serif;font-size:40px;font-weight:600;line-height:.79;letter-spacing:-1.6px;text-align:center}
+.ss-login-brand-name span{display:block;padding-left:25px}
+.ss-login-leaf{margin-top:-8px;color:#ff8a2b;font:51px/1 Georgia,serif;transform:rotate(-25deg)}
+.ss-login-ornament{display:flex;align-items:center;justify-content:center;gap:8px;width:150px;margin:24px auto 21px;color:var(--ss-login-gold)}
+.ss-login-ornament i{width:54px;height:1px;background:linear-gradient(90deg,transparent,var(--ss-login-gold))}
+.ss-login-ornament i:last-child{background:linear-gradient(90deg,var(--ss-login-gold),transparent)}
+.ss-login-ornament b{font-size:10px}
+.ss-login-login-card h1{margin:0;text-align:center;font:600 30px/1.2 'Playfair Display',Georgia,serif;letter-spacing:-.3px}
+.ss-login-subtitle{margin:9px 0 31px;text-align:center;color:var(--ss-login-muted);font-size:14px}
+.ss-login-field{display:flex;align-items:center;position:relative;height:62px;margin-bottom:16px;border:1px solid var(--ss-login-line);border-radius:10px;background:#fff1e908;transition:border-color .2s,box-shadow .2s}
+.ss-login-field:focus-within{border-color:#f26012c7;box-shadow:0 0 0 3px #f2601217}
+.ss-login-field>svg{flex:0 0 59px;width:22px;height:22px;margin:0 18px;color:#c4b4a9;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ss-login-field input{width:100%;min-width:0;height:100%;padding:0 12px 0 0;border:0;outline:0;background:transparent;color:var(--ss-login-text);font-size:14px}
+.ss-login-field input::placeholder{color:#b8aaa2}
+.ss-login-show-password{display:grid;place-items:center;flex:0 0 47px;height:100%;border:0;background:transparent;color:#c4b4a9}
+.ss-login-show-password svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ss-login-show-password:hover{color:#ff8a2b}
+.ss-login-options{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:1px 0 25px;color:var(--ss-login-muted);font-size:13px}
+.ss-login-options a,.ss-login-signup a{color:#ff8a2b;text-decoration:none}
+.ss-login-options a:hover,.ss-login-signup a:hover{text-decoration:underline}
+.ss-login-login-button{display:flex;align-items:center;justify-content:center;gap:16px;width:100%;min-height:62px;border:1px solid #ff812c;border-radius:11px;background:linear-gradient(105deg,#ff7722,#ed4f08);box-shadow:0 7px 18px #dc440826,inset 0 1px #ffffff2b;color:white;font-size:17px;font-weight:700;transition:filter .2s,transform .2s}
+.ss-login-login-button span{font-size:27px;font-weight:400}
+.ss-login-login-button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.ss-login-message{margin:0;text-align:center;color:#ffb99a;font-size:11px}
+.ss-login-message:not(:empty){margin-top:9px}
+.ss-login-or{display:flex;align-items:center;gap:14px;margin:23px 0 19px;color:#a99a91;font-size:13px}
+.ss-login-or i{height:1px;flex:1;background:var(--ss-login-line)}
+.ss-login-socials{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.ss-login-social{display:grid;place-items:center;height:62px;border:1px solid var(--ss-login-line);border-radius:10px;background:#fff8ef09;color:white;transition:border-color .2s,background .2s}
+.ss-login-social:hover{border-color:#f2601299;background:#f2601212}
+.ss-login-social svg{width:26px;height:26px;fill:currentColor}
+.ss-login-social .ss-login-x-social{font-size:30px}.ss-login-x-social span{font-size:30px}
+.ss-login-signup{margin:29px 0 0;text-align:center;color:var(--ss-login-muted);font-size:14px}
+.ss-login-signup a{margin-left:4px;font-weight:700}
+.ss-login-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-height:800px) and (min-width:521px){.ss-login-login-card{padding-top:28px;padding-bottom:25px}.ss-login-brand-name{font-size:35px}.ss-login-leaf{font-size:44px}.ss-login-ornament{margin:15px auto 14px}.ss-login-login-card h1{font-size:27px}.ss-login-subtitle{margin:7px 0 21px}.ss-login-field{height:52px;margin-bottom:12px}.ss-login-options{margin-bottom:17px}.ss-login-login-button{min-height:52px}.ss-login-or{margin:16px 0 14px}.ss-login-social{height:48px}.ss-login-signup{margin-top:18px}}
+@media(max-width:520px){.ss-login-body{height:auto;min-height:100dvh;overflow:auto}.ss-login-screen{height:auto;min-height:100dvh;padding:14px}.ss-login-login-card{width:min(100%,410px);max-height:calc(100dvh - 28px);padding:30px 22px 26px;border-radius:18px}.ss-login-brand-name{font-size:33px}.ss-login-leaf{font-size:43px}.ss-login-ornament{margin:17px auto 15px}.ss-login-login-card h1{font-size:25px}.ss-login-subtitle{margin:7px 0 22px;font-size:12px}.ss-login-field{height:51px;margin-bottom:12px}.ss-login-field>svg{flex-basis:45px;margin:0 13px}.ss-login-field input{font-size:12px}.ss-login-show-password{flex-basis:39px}.ss-login-options{margin-bottom:18px;font-size:11px}.ss-login-login-button{min-height:51px;font-size:15px}.ss-login-or{margin:17px 0 15px;font-size:11px}.ss-login-socials{gap:8px}.ss-login-social{height:47px}.ss-login-signup{margin-top:20px;font-size:11px}}
+@media(max-width:360px){.ss-login-login-card{padding:23px 16px 21px}.ss-login-brand-name{font-size:29px}.ss-login-login-card h1{font-size:23px}.ss-login-options{gap:6px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}}
+
+/* Multi-step auth views */
+.ss-login-view[hidden], .ss-login-login-extras[hidden] { display: none !important; }
+.ss-login-eye-closed { display: block; }
+.ss-login-show-password svg { display: block; }
+.ss-login-view .ss-login-login-button { margin-top: 3px; }
+.ss-login-view .ss-login-message:not(:empty) { margin-top: 10px; }
+.ss-login-signup a { cursor: pointer; }
+@media (max-height: 800px) and (min-width: 521px) { .ss-login-login-card:has(#ssLoginSignupform:not([hidden])) { padding-top: 24px; padding-bottom: 22px; } .ss-login-login-card:has(#ssLoginSignupform:not([hidden])) .ss-login-ornament { margin: 12px auto; } .ss-login-login-card:has(#ssLoginSignupform:not([hidden])) .ss-login-field { height: 47px; margin-bottom: 9px; } }
+
+
+/* Authentication submit/status controls */
+.ss-login-view-link { appearance:none; display:inline; padding:0; border:0; background:transparent; color:#ff8a2b; font:inherit; font-weight:700; cursor:pointer; }
+.ss-login-view-link:hover { color:#ffb16d; text-decoration:underline; }
+.ss-login-secondary-button { width:100%; margin-top:12px; padding:10px 12px; border:1px solid #bda18f66; border-radius:9px; background:#fff1e908; color:#ead9ce; font:inherit; cursor:pointer; }
+.ss-login-secondary-button:disabled { opacity:.55; cursor:not-allowed; }
+.ss-login-message[role="alert"] { color:#ffad9a; }
+.ss-login-message[data-kind="success"] { color:#b6e3bd; }
+.ss-login-view .ss-login-message { line-height:1.5; }

@@ -1,0 +1,61 @@
+/* css/master.css */
+:root {
+  /* Seazonal Swaad Brand Palette */
+  --color-brand: #0F766E;   /* Deep Teal/Green */
+  --color-cta: #F59E0B;     /* Mango/Saffron Orange */
+  --color-alert: #C2410C;   /* Warm Red/Rust */
+  
+  /* Modern E-commerce Neutrals */
+  --color-bg: #F8FAFC;      /* Off-white background to make white cards pop */
+  --color-surface: #FFFFFF; /* Pure white for product cards and nav */
+  --color-text: #0F172A;    /* Near-black for readability */
+  --color-text-muted: #64748B; /* Grey for secondary text */
+
+  /* Typography: System fonts mimic modern app performance */
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Standardized spacing and radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Reusable UI Components */
+.btn-cta {
+  background-color: var(--color-cta);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: opacity 0.2s;
+  width: 100%;
+}
+
+.btn-cta:hover {
+  opacity: 0.9;
+}
+
+.badge-sale {
+  background-color: var(--color-alert);
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}

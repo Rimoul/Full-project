@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Seazonal Swaad</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+<body>
+
+    <!-- Header Injection -->
+    <div id="header-placeholder"></div>
+    
+    <main class="product-details-wrapper">
+        
+        <!-- TOP: HERO SECTION (Images & Buy Box) -->
+        <section class="product-hero">
+            <!-- Left: Image Gallery -->
+            <div class="product-gallery">
+                <div class="main-image-container">
+                    <span class="category-badge badge-traditional" id="detail-category-badge"></span>
+                    <button class="wishlist-btn-large" id="detail-wishlist-btn" aria-label="Add to wishlist">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </button>
+                    <!-- Mock arrows -->
+                    <button class="gallery-arrow left" id="gallery-prev">&lsaquo;</button>
+                    <button class="gallery-arrow right" id="gallery-next">&rsaquo;</button>
+                    <!-- Live Placeholder Image -->
+                    <img src="" alt="" class="main-img" id="detail-main-image" style="background-color: #E5D9C5;">
+                </div>
+                <!-- EMPTY CONTAINER: JS will inject thumbnails -->
+                <div class="thumbnail-row" id="detail-thumbnails-container"></div>
+            </div>
+
+            <!-- Right: Product Info -->
+            <div class="product-buy-box">
+                <h1 class="product-title" id="detail-title"></h1>
+                
+                <div class="rating-row" id="detail-rating-row">
+                    <div class="stars" id="detail-stars-display"></div>
+                    <span class="rating-score" id="detail-rating-score"></span>
+                    <span class="review-count" id="detail-review-count"></span>
+                </div>
+
+                <div class="price-row">
+                    <span class="current-price" id="detail-selling-price"></span>
+                    <span class="original-price" id="detail-original-price"></span>
+                    <span class="discount-tag" id="detail-discount-tag"></span>
+                </div>
+
+                <div class="weight-selector">
+                    <!-- EMPTY CONTAINER: JS will inject variant options -->
+                    <select id="detail-variant-selector"></select>
+                </div>
+
+                <p class="short-desc" id="detail-short-desc"></p>
+
+                <!-- EMPTY CONTAINER: JS will inject product_highlights -->
+                <div class="trust-icons-row" id="detail-highlights-container"></div>
+
+                <div class="purchase-actions">
+                    <div class="quantity-selector">
+                        <span class="qty-label">Quantity</span>
+                        <div class="qty-controls">
+                            <button id="detail-qty-minus">-</button>
+                            <input type="text" id="detail-qty-input" value="1" readonly>
+                            <button id="detail-qty-plus">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="btn-add-cart" id="detail-add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                            Add to Cart
+                        </button>
+                        <button class="btn-buy-now" id="detail-buy-now">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Global Trust Badges (Kept static as these are usually store-wide policies) -->
+                <div class="delivery-trust-badges">
+                    <div class="badge-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        <div>
+                            <strong>Free Delivery</strong>
+                            <span>On orders above ₹499</span>
+                        </div>
+                    </div>
+                    <div class="badge-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                        <div>
+                            <strong>Secure Payments</strong>
+                            <span>100% Safe & Trusted</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MIDDLE: TABS & DEEP DIVE -->
+        <section class="product-deep-dive">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-target="desc">Description</button>
+                <button class="tab-btn" data-target="ingredients">Ingredients</button>
+                <button class="tab-btn" data-target="shipping">Shipping & Returns</button>
+                <button class="tab-btn" data-target="reviews" id="tab-btn-reviews">Reviews</button>
+                <button class="tab-btn" data-target="qa" id="tab-btn-qa">Q&A</button>
+            </div>
+
+            <div class="tabs-content">
+                <!-- Left Column: Text & Specs -->
+                <div class="content-left">
+                    <h3 class="section-title">Product Description</h3>
+                    <!-- EMPTY CONTAINER: JS will inject long_description -->
+                    <div id="detail-long-desc-container"></div>
+
+                    <!-- EMPTY CONTAINER: JS will inject product_highlights as list -->
+                    <ul class="feature-bullets" id="detail-feature-bullets"></ul>
+
+                    <h3 class="section-title">Key Ingredients</h3>
+                    <!-- EMPTY CONTAINER: JS will inject product_ingredients -->
+                    <div class="ingredients-list" id="detail-ingredients-container"></div>
+                </div>
+
+                <!-- Right Column: Video & Reviews -->
+                <div class="content-right">
+                    <!-- EMPTY CONTAINER: JS will inject background URL and logic if media_type === video -->
+                    <div class="video-placeholder" id="detail-video-container" style="display: none;">
+                        <span class="video-badge">Product Video</span>
+                        <div class="play-button"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+                    </div>
+
+                    <!-- EMPTY CONTAINER: JS will inject reviews from the reviews table -->
+                    <div class="reviews-summary-card" id="detail-reviews-container"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOTTOM: MORE PRODUCTS -->
+        <section class="more-products-section">
+            <div class="section-header-flex">
+                <h3 class="section-title">More Products</h3>
+                <a href="/pages/all-products.html" class="view-all-link">View All</a>
+            </div>
+            
+            <!-- EMPTY CONTAINER: JS will inject mini cards based on similar categories -->
+            <div class="mini-product-grid" id="more-products-container"></div>
+        </section>
+
+        <!-- PAGE SPECIFIC BOTTOM BANNER -->
+        <div class="product-details-bottom-wrapper">
+            <div class="wave-divider">
+                <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C320,120 420,0 720,60 C1020,120 1120,0 1440,60 L1440,120 L0,120 Z" fill="#3A100E"></path></svg>
+            </div>
+            <section class="product-details-bottom-banner">
+                <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.5"><path d="M12 2c0 0-4 4-4 10s4 10 4 10 4-4 4-10-4-10-4-10z"></path></svg>
+                <h2>Bringing the taste of tradition<br>closer to you.</h2>
+                <div class="hero-divider center-div"><svg viewBox="0 0 150 10" width="150" height="10"><line x1="0" y1="5" x2="150" y2="5" stroke="#C5A880" stroke-width="1"></line><circle cx="75" cy="5" r="3" fill="#C5A880"></circle></svg></div>
+            </section>
+        </div>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="/js/core/components.js"></script>
+    <script src="/js/core/layout.js"></script>
+    <script src="/js/core/router.js"></script>
+    <!-- Product Detail Logic Script -->
+    <script src="/js/pages/product.js"></script>
+</body>
+</html>
